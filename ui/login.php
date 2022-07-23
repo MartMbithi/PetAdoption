@@ -72,19 +72,20 @@ require_once('../app/partials/head.php');
     <!-- ===============================================-->
     <!--    Main Content-->
     <!-- ===============================================-->
-    <main class="main" id="top">
+    <main class="main" id="top" style="background-image: url('../assets/app_data/backgrounds/bg_1.jpg'); background-size: cover;">
 
         <div class="container">
             <div class="row flex-center min-vh-100 py-6">
                 <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                     <a class="d-block text-center mb-4" href=".">
                         <img class="mr-2" src="../assets/app_data/illustrations/falcon.png" alt="" width="58" />
-                        <span class="text-sans-serif font-weight-extra-bold fs-5 d-inline-block">Pet Adoption</span></a>
+                        <span class="text-sans-serif font-weight-extra-bold fs-5 d-inline-block">Pet Adoption</span>
+                    </a>
                     <div class="card">
                         <div class="card-body p-5">
                             <div class="row text-left justify-content-between">
                                 <div class="col-auto">
-                                    <h5>Log in</h5>
+                                    <h5>Sign in</h5>
                                 </div>
                                 <div class="col-auto">
                                     <p class="fs--1 text-600">or <a href="sign_up">Create an account</a></p>
