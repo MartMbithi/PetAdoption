@@ -71,5 +71,5 @@
 $dbuser = "root";
 $dbpass = "";
 $host = "localhost";
-$db = "driver_booking";
+$db = "pet_adoption";
 $mysqli = new mysqli($host, $dbuser, $dbpass, $db);
