@@ -108,13 +108,22 @@ require_once('../app/partials/head.php');
                                     <hr class="text-300" />
                                     <div class="position-absolute absolute-centered t-0 px-3 bg-white text-sans-serif fs--1 text-500 text-nowrap">Or Sign Up As</div>
                                 </div>
-                                <div class="form-group mb-0">
-                                    <div class="row no-gutters">
-                                        <div class="col-sm-6 pr-sm-1"><a class="btn btn-outline-google-plus btn-sm btn-block mt-2" href="#"> Pet Owner </a></div>
-                                        <div class="col-sm-6 pl-sm-1"><a class="btn btn-outline-facebook btn-sm btn-block mt-2" href="#">Pet Adopter</a></div>
+                            </form>
+                            <div class="form-group mb-0">
+                                <div class="row no-gutters">
+                                    <div class="col-sm-6 pr-sm-1">
+                                        <button data-toggle="modal" class="btn btn-outline-google-plus btn-sm btn-block mt-2" data-target="#pet_owner">
+                                            Pet Owner
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-6 pl-sm-1">
+                                        <button data-toggle="modal" class="btn btn-outline-facebook btn-sm btn-block mt-2" data-target="#pet_adopter">
+                                            Pet Adopter
+                                        </button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -123,7 +132,10 @@ require_once('../app/partials/head.php');
     </main><!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
-
+    <?php
+    include('../app/partials/register_pet_adopter_modal.php');
+    include('../app/partials/register_pet_owner_modal.php');
+    ?>
 
 
     <!-- ===============================================-->
