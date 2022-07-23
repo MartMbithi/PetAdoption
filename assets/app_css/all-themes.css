@@ -1,0 +1,440 @@
+﻿/* theme-red ===================================*/
+.theme-red .navbar,
+.theme-red .blog-page .blog-post .img-holder .date-box,
+.theme-red .profile-page .profile-sub-header .box-list ul li a:hover,
+.theme-red .menu > ul > li > ul.normal-sub > li a:hover,
+.theme-red .menu > ul > li > ul > li > ul > li a:hover {
+  background-color: #f34167;
+}
+.theme-red .bars,
+.theme-red .navbar-brand,
+.theme-red .navbar-brand:hover,
+.theme-red .navbar-brand:active,
+.theme-red .navbar-brand:focus,
+.theme-red .nav > li > a {
+  color: #fff;
+}
+
+.theme-red .nav > li > a:hover,
+.theme-red .nav > li > a:focus,
+.theme-red .nav .open > a,
+.theme-red .nav .open > a:hover,
+.theme-red .nav .open > a:focus
+.theme-red .sidebar .menu .list li.active,
+{
+  background-color: transparent;
+}
+
+.theme-red .sidebar .menu .list li.active >:first-child i,
+.theme-red .sidebar .menu .list li.active >:first-child span {
+  color: #f34167;
+}
+.theme-red .sidebar .menu .list .toggled,
+.theme-red .sidebar .menu .list .ml-menu {
+  background-color: #f6f6f6;
+  border-left: 3px solid #f34167;
+}
+.theme-red .inbox-widget .inbox-inner:hover .inbox-img img {
+  border: 2px solid #f34167;
+  transition: all 150ms linear;
+}
+.theme-red .nav-tabs .nav-link.active {
+  border-bottom: 1px solid #f34167 !important;
+}
+
+/* theme-purple ===================================*/
+.theme-purple .navbar,
+.theme-purple .blog-page .blog-post .img-holder .date-box,
+.theme-purple .profile-page .profile-sub-header .box-list ul li a:hover,
+.theme-purple .menu > ul > li > ul.normal-sub > li a:hover,
+.theme-purple .menu > ul > li > ul > li > ul > li a:hover {
+  background-color: #9C27B0;
+}
+.theme-purple .bars,
+.theme-purple .navbar-brand,
+.theme-purple .navbar-brand:hover,
+.theme-purple .navbar-brand:active,
+.theme-purple .navbar-brand:focus,
+.theme-purple .nav > li > a {
+  color: #fff;
+}
+
+.theme-purple .nav > li > a:hover,
+.theme-purple .nav > li > a:focus,
+.theme-purple .nav .open > a,
+.theme-purple .nav .open > a:hover,
+.theme-purple .nav .open > a:focus
+.theme-purple .sidebar .menu .list li.active,
+{
+  background-color: transparent;
+}
+
+.theme-purple .sidebar .menu .list li.active >:first-child i,
+.theme-purple .sidebar .menu .list li.active >:first-child span {
+  color: #9C27B0;
+}
+.theme-purple .sidebar .menu .list .toggled,
+.theme-purple .sidebar .menu .list .ml-menu {
+  background-color: #f6f6f6;
+  border-left: 3px solid #9C27B0;
+}
+.theme-purple .inbox-widget .inbox-inner:hover .inbox-img img {
+  border: 2px solid #9C27B0;
+  transition: all 150ms linear;
+}
+.theme-purple .nav-tabs .nav-link.active {
+  border-bottom: 1px solid #9C27B0 !important;
+}
+
+/* theme-deep-purple ===================================*/
+.theme-deep-purple .navbar,
+.theme-deep-purple .blog-page .blog-post .img-holder .date-box,
+.theme-deep-purple .profile-page .profile-sub-header .box-list ul li a:hover,
+.theme-deep-purple .menu > ul > li > ul.normal-sub > li a:hover,
+.theme-deep-purple .menu > ul > li > ul > li > ul > li a:hover {
+  background-color: #5c5edc;
+}
+.theme-deep-purple .bars,
+.theme-deep-purple .navbar-brand,
+.theme-deep-purple .navbar-brand:hover,
+.theme-deep-purple .navbar-brand:active,
+.theme-deep-purple .navbar-brand:focus,
+.theme-deep-purple .nav > li > a {
+  color: #fff;
+}
+
+.theme-deep-purple .nav > li > a:hover,
+.theme-deep-purple .nav > li > a:focus,
+.theme-deep-purple .nav .open > a,
+.theme-deep-purple .nav .open > a:hover,
+.theme-deep-purple .nav .open > a:focus
+.theme-deep-purple .sidebar .menu .list li.active,
+{
+  background-color: transparent;
+}
+
+.theme-deep-purple .sidebar .menu .list li.active >:first-child i,
+.theme-deep-purple .sidebar .menu .list li.active >:first-child span {
+  color: #5c5edc;
+}
+.theme-deep-purple .sidebar .menu .list .toggled,
+.theme-deep-purple .sidebar .menu .list .ml-menu {
+  background-color: #f6f6f6;
+  border-left: 3px solid #5c5edc;
+}
+.theme-deep-purple .inbox-widget .inbox-inner:hover .inbox-img img {
+  border: 2px solid #5c5edc;
+  transition: all 150ms linear;
+}
+.theme-deep-purple .nav-tabs .nav-link.active {
+  border-bottom: 1px solid #5c5edc !important;
+}
+
+/* theme-blue ===================================*/
+.theme-blue .navbar,
+.theme-blue .blog-page .blog-post .img-holder .date-box,
+.theme-blue .profile-page .profile-sub-header .box-list ul li a:hover,
+.theme-blue .menu > ul > li > ul.normal-sub > li a:hover,
+.theme-blue .menu > ul > li > ul > li > ul > li a:hover {
+  background-color: #2196F3;
+}
+.theme-blue .bars,
+.theme-blue .navbar-brand,
+.theme-blue .navbar-brand:hover,
+.theme-blue .navbar-brand:active,
+.theme-blue .navbar-brand:focus,
+.theme-blue .nav > li > a {
+  color: #fff;
+}
+
+.theme-blue .nav > li > a:hover,
+.theme-blue .nav > li > a:focus,
+.theme-blue .nav .open > a,
+.theme-blue .nav .open > a:hover,
+.theme-blue .nav .open > a:focus
+.theme-blue .sidebar .menu .list li.active,
+{
+  background-color: transparent;
+}
+
+.theme-blue .sidebar .menu .list li.active >:first-child i,
+.theme-blue .sidebar .menu .list li.active >:first-child span {
+  color: #2196F3;
+}
+.theme-blue .sidebar .menu .list .toggled,
+.theme-blue .sidebar .menu .list .ml-menu {
+  background-color: #f6f6f6;
+  border-left: 3px solid #2196F3;
+}
+.theme-blue .inbox-widget .inbox-inner:hover .inbox-img img {
+  border: 2px solid #2196F3;
+  transition: all 150ms linear;
+}
+.theme-blue .nav-tabs .nav-link.active {
+  border-bottom: 1px solid #2196F3 !important;
+}
+
+
+/* theme-cyan ===================================*/
+.theme-cyan .navbar,
+.theme-cyan .blog-page .blog-post .img-holder .date-box,
+.theme-cyan .profile-page .profile-sub-header .box-list ul li a:hover,
+.theme-cyan .menu > ul > li > ul.normal-sub > li a:hover,
+.theme-cyan .menu > ul > li > ul > li > ul > li a:hover {
+  background-color: #00BCD4;
+}
+.theme-cyan .bars,
+.theme-cyan .navbar-brand,
+.theme-cyan .navbar-brand:hover,
+.theme-cyan .navbar-brand:active,
+.theme-cyan .navbar-brand:focus,
+.theme-cyan .nav > li > a {
+  color: #fff;
+}
+
+.theme-cyan .nav > li > a:hover,
+.theme-cyan .nav > li > a:focus,
+.theme-cyan .nav .open > a,
+.theme-cyan .nav .open > a:hover,
+.theme-cyan .nav .open > a:focus
+.theme-cyan .sidebar .menu .list li.active,
+{
+  background-color: transparent;
+}
+
+.theme-cyan .sidebar .menu .list li.active >:first-child i,
+.theme-cyan .sidebar .menu .list li.active >:first-child span {
+  color: #00BCD4;
+}
+.theme-cyan .sidebar .menu .list .toggled,
+.theme-cyan .sidebar .menu .list .ml-menu {
+  background-color: #f6f6f6;
+  border-left: 3px solid #00BCD4;
+}
+.theme-cyan .inbox-widget .inbox-inner:hover .inbox-img img {
+  border: 2px solid #00BCD4;
+  transition: all 150ms linear;
+}
+.theme-cyan .nav-tabs .nav-link.active {
+  border-bottom: 1px solid #00BCD4 !important;
+}
+
+/* theme-blue-grey ===================================*/
+.theme-blue-grey .navbar,
+.theme-blue-grey .blog-page .blog-post .img-holder .date-box,
+.theme-blue-grey .profile-page .profile-sub-header .box-list ul li a:hover,
+.theme-blue-grey .menu > ul > li > ul.normal-sub > li a:hover,
+.theme-blue-grey .menu > ul > li > ul > li > ul > li a:hover {
+  background-color: #607D8B;
+}
+.theme-blue-grey .bars,
+.theme-blue-grey .navbar-brand,
+.theme-blue-grey .navbar-brand:hover,
+.theme-blue-grey .navbar-brand:active,
+.theme-blue-grey .navbar-brand:focus,
+.theme-blue-grey .nav > li > a {
+  color: #fff;
+}
+
+.theme-blue-grey .nav > li > a:hover,
+.theme-blue-grey .nav > li > a:focus,
+.theme-blue-grey .nav .open > a,
+.theme-blue-grey .nav .open > a:hover,
+.theme-blue-grey .nav .open > a:focus
+.theme-blue-grey .sidebar .menu .list li.active,
+{
+  background-color: transparent;
+}
+
+.theme-blue-grey .sidebar .menu .list li.active >:first-child i,
+.theme-blue-grey .sidebar .menu .list li.active >:first-child span {
+  color: #607D8B;
+}
+.theme-blue-grey .sidebar .menu .list .toggled,
+.theme-blue-grey .sidebar .menu .list .ml-menu {
+  background-color: #f6f6f6;
+  border-left: 3px solid #607D8B;
+}
+.theme-blue-grey .inbox-widget .inbox-inner:hover .inbox-img img {
+  border: 2px solid #607D8B;
+  transition: all 150ms linear;
+}
+.theme-blue-grey .nav-tabs .nav-link.active {
+  border-bottom: 1px solid #607D8B !important;
+}
+
+/* theme-black ===================================*/
+.theme-black .navbar,
+.theme-black .blog-page .blog-post .img-holder .date-box,
+.theme-black .profile-page .profile-sub-header .box-list ul li a:hover,
+.theme-black .menu > ul > li > ul.normal-sub > li a:hover,
+.theme-black .menu > ul > li > ul > li > ul > li a:hover {
+  background-color: #000;
+}
+.theme-black .bars,
+.theme-black .navbar-brand,
+.theme-black .navbar-brand:hover,
+.theme-black .navbar-brand:active,
+.theme-black .navbar-brand:focus,
+.theme-black .nav > li > a {
+  color: #fff;
+}
+
+.theme-black .nav > li > a:hover,
+.theme-black .nav > li > a:focus,
+.theme-black .nav .open > a,
+.theme-black .nav .open > a:hover,
+.theme-black .nav .open > a:focus
+.theme-black .sidebar .menu .list li.active,
+{
+  background-color: transparent;
+}
+
+.theme-black .sidebar .menu .list li.active >:first-child i,
+.theme-black .sidebar .menu .list li.active >:first-child span {
+  color: #000;
+}
+.theme-black .sidebar .menu .list .toggled,
+.theme-black .sidebar .menu .list .ml-menu {
+  background-color: #f6f6f6;
+  border-left: 3px solid #000;
+}
+.theme-black .inbox-widget .inbox-inner:hover .inbox-img img {
+  border: 2px solid #000;
+  transition: all 150ms linear;
+}
+.theme-black .nav-tabs .nav-link.active {
+  border-bottom: 1px solid #000 !important;
+}
+
+/* theme-green ===================================*/
+.theme-green .navbar,
+.theme-green .blog-page .blog-post .img-holder .date-box,
+.theme-green .profile-page .profile-sub-header .box-list ul li a:hover,
+.theme-green .menu > ul > li > ul.normal-sub > li a:hover,
+.theme-green .menu > ul > li > ul > li > ul > li a:hover {
+  background:linear-gradient(45deg, #4CAF50, #55ce5a);
+}
+.theme-green .bars,
+.theme-green .navbar-brand,
+.theme-green .navbar-brand:hover,
+.theme-green .navbar-brand:active,
+.theme-green .navbar-brand:focus,
+.theme-green .nav > li > a {
+  color: #fff;
+}
+
+.theme-green .nav > li > a:hover,
+.theme-green .nav > li > a:focus,
+.theme-green .nav .open > a,
+.theme-green .nav .open > a:hover,
+.theme-green .nav .open > a:focus
+.theme-green .sidebar .menu .list li.active,
+{
+  background-color: transparent;
+}
+
+.theme-green .sidebar .menu .list li.active >:first-child i,
+.theme-green .sidebar .menu .list li.active >:first-child span {
+  color: #4CAF50;
+}
+.theme-green .sidebar .menu .list .toggled,
+.theme-green .sidebar .menu .list .ml-menu {
+  background-color: #f6f6f6;
+  border-left: 3px solid #4CAF50;
+}
+.theme-green .inbox-widget .inbox-inner:hover .inbox-img img {
+  border: 2px solid #4CAF50;
+  transition: all 150ms linear;
+}
+.theme-green .nav-tabs .nav-link.active {
+  border-bottom: 1px solid #4CAF50 !important;
+}
+
+/* theme-orange ===================================*/
+.theme-orange .navbar,
+.theme-orange .blog-page .blog-post .img-holder .date-box,
+.theme-orange .profile-page .profile-sub-header .box-list ul li a:hover,
+.theme-orange .menu > ul > li > ul.normal-sub > li a:hover,
+.theme-orange .menu > ul > li > ul > li > ul > li a:hover {
+  background:linear-gradient(45deg, #FF9800, #ffa827);
+}
+.theme-orange .bars,
+.theme-orange .navbar-brand,
+.theme-orange .navbar-brand:hover,
+.theme-orange .navbar-brand:active,
+.theme-orange .navbar-brand:focus,
+.theme-orange .nav > li > a {
+  color: #fff;
+}
+
+.theme-orange .nav > li > a:hover,
+.theme-orange .nav > li > a:focus,
+.theme-orange .nav .open > a,
+.theme-orange .nav .open > a:hover,
+.theme-orange .nav .open > a:focus
+.theme-orange .sidebar .menu .list li.active,
+{
+  background-color: transparent;
+}
+
+.theme-orange .sidebar .menu .list li.active >:first-child i,
+.theme-orange .sidebar .menu .list li.active >:first-child span {
+  color: #FF9800;
+}
+.theme-orange .sidebar .menu .list .toggled,
+.theme-orange .sidebar .menu .list .ml-menu {
+  background-color: #f6f6f6;
+  border-left: 3px solid #FF9800;
+}
+.theme-orange .inbox-widget .inbox-inner:hover .inbox-img img {
+  border: 2px solid #FF9800;
+  transition: all 150ms linear;
+}
+.theme-orange .nav-tabs .nav-link.active {
+  border-bottom: 1px solid #FF9800 !important;
+}
+
+/* theme-blush ===================================*/
+.theme-blush .navbar,
+.theme-blush .blog-page .blog-post .img-holder .date-box,
+.theme-blush .profile-page .profile-sub-header .box-list ul li a:hover,
+.theme-blush .menu > ul > li > ul.normal-sub > li a:hover,
+.theme-blush .menu > ul > li > ul > li > ul > li a:hover {
+  background:linear-gradient(45deg, #dd5e89, #f7bb97);
+}
+.theme-blush .bars,
+.theme-blush .navbar-brand,
+.theme-blush .navbar-brand:hover,
+.theme-blush .navbar-brand:active,
+.theme-blush .navbar-brand:focus,
+.theme-blush .nav > li > a {
+  color: #fff;
+}
+
+.theme-blush .nav > li > a:hover,
+.theme-blush .nav > li > a:focus,
+.theme-blush .nav .open > a,
+.theme-blush .nav .open > a:hover,
+.theme-blush .nav .open > a:focus
+.theme-blush .sidebar .menu .list li.active,
+{
+  background-color: transparent;
+}
+
+.theme-blush .sidebar .menu .list li.active >:first-child i,
+.theme-blush .sidebar .menu .list li.active >:first-child span {
+  color: #dd5e89;
+}
+.theme-blush .sidebar .menu .list .toggled,
+.theme-blush .sidebar .menu .list .ml-menu {
+  background-color: #f6f6f6;
+  border-left: 3px solid #dd5e89;
+}
+.theme-blush .inbox-widget .inbox-inner:hover .inbox-img img {
+  border: 2px solid #dd5e89;
+  transition: all 150ms linear;
+}
+.theme-blush .nav-tabs .nav-link.active {
+  border-bottom: 1px solid #dd5e89 !important;
+}
