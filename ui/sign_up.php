@@ -81,53 +81,107 @@ require_once('../app/partials/head.php');
                         <img class="mr-2" src="../assets/app_data/illustrations/falcon.png" alt="" width="58" />
                         <span class="text-sans-serif font-weight-extra-bold fs-5 d-inline-block">Pet Adoption</span>
                     </a>
-                    <div class="card">
-                        <div class="card-body p-5">
-                            <div class="row text-left justify-content-between">
-                                <div class="col-auto">
-                                    <h5>Sign Up As Pet Adopter</h5>
-                                </div>
-                            </div>
-                            <hr>
-                            <form method="POST">
-                                <div class="form-row">
-                                    <div class="form-group col-12">
-                                        <label>Full Names</label>
-                                        <input class="form-control" type="text" name="adopter_full_name">
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label>Contacts</label>
-                                        <input class="form-control" type="text" name="adoper_contacts">
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label>Email Address</label>
-                                        <input class="form-control" type="text" name="adopter_email">
-                                    </div>
-                                    <div class="form-group col-12">
-                                        <label>Address</label>
-                                        <input class="form-control" type="text" name="adopter_location">
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label>Login Password</label>
-                                        <input class="form-control" type="password" name="new_password">
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label>Confirm Password</label>
-                                        <input class="form-control" type="password" name="confirm_password">
-                                    </div>
-                                </div>
-
-                                <div class="row justify-content-between">
+                    <?php
+                    $user = mysqli_real_escape_string($mysqli, $_GET['user']);
+                    if ($user == 'PetAdopter') {
+                    ?>
+                        <div class="card">
+                            <div class="card-body p-5">
+                                <div class="row text-left justify-content-between">
                                     <div class="col-auto">
+                                        <h5>Sign Up As Pet Adopter</h5>
                                     </div>
-                                    <div class="col-auto"><a class="fs--1" href="../">Already Has Account?</a></div>
                                 </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-block mt-3" type="submit" name="Register_PetAdopter" name="submit">Sign Up</button>
-                                </div>
-                            </form>
+                                <hr>
+                                <form method="POST">
+                                    <div class="form-row">
+                                        <div class="form-group col-12">
+                                            <label>Full Names</label>
+                                            <input class="form-control" type="text" name="adopter_full_name">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label>Contacts</label>
+                                            <input class="form-control" type="text" name="adoper_contacts">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label>Email Address</label>
+                                            <input class="form-control" type="text" name="adopter_email">
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label>Address</label>
+                                            <input class="form-control" type="text" name="adopter_location">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label>Login Password</label>
+                                            <input class="form-control" type="password" name="new_password">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label>Confirm Password</label>
+                                            <input class="form-control" type="password" name="confirm_password">
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-between">
+                                        <div class="col-auto">
+                                        </div>
+                                        <div class="col-auto"><a class="fs--1" href="../">Already Has Account?</a></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-block mt-3" type="submit" name="Register_PetAdopter" name="submit">Sign Up</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    <?php
+                    } else { ?>
+                        <div class="card">
+                            <div class="card-body p-5">
+                                <div class="row text-left justify-content-between">
+                                    <div class="col-auto">
+                                        <h5>Sign Up As Pet Owner</h5>
+                                    </div>
+                                </div>
+                                <hr>
+                                <form method="POST">
+                                    <div class="form-row">
+                                        <div class="form-group col-12">
+                                            <label>Full Names</label>
+                                            <input class="form-control" type="text" name="pet_owner_full_name">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label>Contacts</label>
+                                            <input class="form-control" type="text" name="pet_owner_contacts">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label>Email Address</label>
+                                            <input class="form-control" type="text" name="pet_owner_email">
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label>Address</label>
+                                            <input class="form-control" type="text" name="pet_owner_address">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label>Login Password</label>
+                                            <input class="form-control" type="password" name="new_password">
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label>Confirm Password</label>
+                                            <input class="form-control" type="password" name="confirm_password">
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-between">
+                                        <div class="col-auto">
+                                        </div>
+                                        <div class="col-auto"><a class="fs--1" href="../">Already Has Account?</a></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-block mt-3" type="submit" name="Register_PetOwner" name="submit">Sign Up</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

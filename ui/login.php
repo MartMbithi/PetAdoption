@@ -112,12 +112,12 @@ require_once('../app/partials/head.php');
                             <div class="form-group mb-0">
                                 <div class="row no-gutters">
                                     <div class="col-sm-6 pr-sm-1">
-                                        <a class="btn btn-outline-google-plus btn-sm btn-block mt-2" href="sign_up">
+                                        <a class="btn btn-outline-google-plus btn-sm btn-block mt-2" href="sign_up?user=PetOwner">
                                             Pet Owner
                                         </a>
                                     </div>
                                     <div class="col-sm-6 pl-sm-1">
-                                        <a data-toggle="modal" class="btn btn-outline-facebook btn-sm btn-block mt-2" data-target="sign_up">
+                                        <a class="btn btn-outline-facebook btn-sm btn-block mt-2" href="sign_up?user=PetAdopter">
                                             Pet Adopter
                                         </a>
                                     </div>
