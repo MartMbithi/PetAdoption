@@ -85,21 +85,27 @@ require_once('../app/partials/head.php');
                         <div class="card-body p-5">
                             <div class="row text-left justify-content-between">
                                 <div class="col-auto">
-                                    <h5>Sign In</h5>
+                                    <h5>Sign Up As Pet Adopter</h5>
                                 </div>
                             </div>
+                            <hr>
                             <form method="POST">
                                 <div class="form-group">
-                                    <input class="form-control" type="email" required name="login_email" placeholder="Email address" />
+                                    <label for="name">Full Names</label>
+                                    <input class="form-control" type="text" name="adopter_full_name">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" type="password" name="login_password" required placeholder="Password" />
+                                    <label for="name">Contacts</label>
+                                    <input class="form-control" type="text" name="adoper_contacts">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Contacts</label>
+                                    <input class="form-control" type="text" name="adoper_contacts">
                                 </div>
                                 <div class="row justify-content-between">
                                     <div class="col-auto">
-                                        <div class="custom-control custom-checkbox"><input class="custom-control-input" id="customCheckRemember" type="checkbox" /><label class="custom-control-label" for="customCheckRemember">Remember me</label></div>
                                     </div>
-                                    <div class="col-auto"><a class="fs--1" href="reset_password">Forgot Password?</a></div>
+                                    <div class="col-auto"><a class="fs--1" href="../">Already Has Account?</a></div>
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-block mt-3" type="submit" name="login" name="submit">Log in</button>
@@ -109,21 +115,6 @@ require_once('../app/partials/head.php');
                                     <div class="position-absolute absolute-centered t-0 px-3 bg-white text-sans-serif fs--1 text-500 text-nowrap">Or Sign Up As</div>
                                 </div>
                             </form>
-                            <div class="form-group mb-0">
-                                <div class="row no-gutters">
-                                    <div class="col-sm-6 pr-sm-1">
-                                        <a class="btn btn-outline-google-plus btn-sm btn-block mt-2" href="sign_up">
-                                            Pet Owner
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-6 pl-sm-1">
-                                        <a data-toggle="modal" class="btn btn-outline-facebook btn-sm btn-block mt-2" data-target="sign_up">
-                                            Pet Adopter
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
