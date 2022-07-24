@@ -85,7 +85,7 @@ require_once('../app/partials/head.php');
                         <div class="card-body p-5">
                             <div class="row text-left justify-content-between">
                                 <div class="col-auto">
-                                    <h5>Sign In</h5>
+                                    <h5>Reset Password</h5>
                                 </div>
                             </div>
                             <hr>
@@ -93,38 +93,15 @@ require_once('../app/partials/head.php');
                                 <div class="form-group">
                                     <input class="form-control" type="email" required name="login_email" placeholder="Email address" />
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="password" name="login_password" required placeholder="Password" />
-                                </div>
                                 <div class="row justify-content-between">
                                     <div class="col-auto">
-                                        <div class="custom-control custom-checkbox"><input class="custom-control-input" id="customCheckRemember" type="checkbox" /><label class="custom-control-label" for="customCheckRemember">Remember me</label></div>
                                     </div>
-                                    <div class="col-auto"><a class="fs--1" href="reset_password">Forgot Password?</a></div>
+                                    <div class="col-auto"><a class="fs--1" href="../">Remember Password?</a></div>
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-primary btn-block mt-3" type="submit" name="login" name="submit">Log in</button>
-                                </div>
-                                <div class="w-100 position-relative text-center mt-4">
-                                    <hr class="text-300" />
-                                    <div class="position-absolute absolute-centered t-0 px-3 bg-white text-sans-serif fs--1 text-500 text-nowrap">Or Sign Up As</div>
+                                    <button class="btn btn-primary btn-block mt-3" type="submit" name="Reset_Password" name="submit">Reset Password</button>
                                 </div>
                             </form>
-                            <div class="form-group mb-0">
-                                <div class="row no-gutters">
-                                    <div class="col-sm-6 pr-sm-1">
-                                        <a class="btn btn-outline-google-plus btn-sm btn-block mt-2" href="sign_up?user=PetOwner">
-                                            Pet Owner
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-6 pl-sm-1">
-                                        <a class="btn btn-outline-facebook btn-sm btn-block mt-2" href="sign_up?user=PetAdopter">
-                                            Pet Adopter
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
