@@ -77,7 +77,7 @@ require_once('../app/partials/head.php');
         <div class="container">
             <div class="row flex-center min-vh-100 py-6">
                 <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
-                    <a class="d-block text-center mb-4" href=".">
+                    <a class="d-block text-center mb-4" href="">
                         <img class="mr-2" src="../assets/app_data/illustrations/falcon.png" alt="" width="58" />
                         <span class="text-sans-serif font-weight-extra-bold fs-5 d-inline-block">Pet Adoption</span>
                     </a>
@@ -90,29 +90,40 @@ require_once('../app/partials/head.php');
                             </div>
                             <hr>
                             <form method="POST">
-                                <div class="form-group">
-                                    <label for="name">Full Names</label>
-                                    <input class="form-control" type="text" name="adopter_full_name">
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label>Full Names</label>
+                                        <input class="form-control" type="text" name="adopter_full_name">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label>Contacts</label>
+                                        <input class="form-control" type="text" name="adoper_contacts">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label>Email Address</label>
+                                        <input class="form-control" type="text" name="adopter_email">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Address</label>
+                                        <input class="form-control" type="text" name="adopter_location">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label>Login Password</label>
+                                        <input class="form-control" type="password" name="new_password">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label>Confirm Password</label>
+                                        <input class="form-control" type="password" name="confirm_password">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="name">Contacts</label>
-                                    <input class="form-control" type="text" name="adoper_contacts">
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">Contacts</label>
-                                    <input class="form-control" type="text" name="adoper_contacts">
-                                </div>
+
                                 <div class="row justify-content-between">
                                     <div class="col-auto">
                                     </div>
                                     <div class="col-auto"><a class="fs--1" href="../">Already Has Account?</a></div>
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-primary btn-block mt-3" type="submit" name="login" name="submit">Log in</button>
-                                </div>
-                                <div class="w-100 position-relative text-center mt-4">
-                                    <hr class="text-300" />
-                                    <div class="position-absolute absolute-centered t-0 px-3 bg-white text-sans-serif fs--1 text-500 text-nowrap">Or Sign Up As</div>
+                                    <button class="btn btn-primary btn-block mt-3" type="submit" name="Register_PetAdopter" name="submit">Sign Up</button>
                                 </div>
                             </form>
                         </div>
