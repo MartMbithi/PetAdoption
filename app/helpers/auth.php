@@ -86,13 +86,13 @@ if (isset($_POST['Register_PetAdopter'])) {
         $err = "Passwords Does Not Match";
     } else {
         /* Avoid Duplications */
-        $adopter_sql = "INSERT INTO adoper (adopter_full_name, adoper_contacts, adopter_email, adopter_login_id, adopter_location)
+        $adopter_sql = "INSERT INTO adopter (adopter_full_name, adoper_contacts, adopter_email, adopter_login_id, adopter_location)
         VALUES('{$adopter_full_name}', '{$adoper_contacts}', '{$adopter_email}', '{$login_id}', '{$adopter_location}')";
         $auth_sql = "INSERT INTO login (login_id, login_email, login_password, login_rank)
         VALUES('{$login_id}', '{$adopter_email}', '{$new_password}', '{$login_rank}')";
 
         /* Prepare */
-        if (mysqli_query($mysqli, $adopter_sql) && mysqli_query($mysqli, $auth_sql)) {
+        if (mysqli_query($mysqli, $auth_sql) && mysqli_query($mysqli, $adopter_sql)) {
             $success = "Account Created, Proceed To Login";
         } else {
             $err = "Failed!, Please Try Again";
