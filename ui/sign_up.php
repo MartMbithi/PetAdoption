@@ -65,6 +65,9 @@
  *
  */
 require_once('../app/settings/config.php');
+require_once('../app/settings/codeGen.php');
+/* Load Auth Helper */
+require_once('../app/helpers/auth.php');
 require_once('../app/partials/head.php');
 ?>
 
