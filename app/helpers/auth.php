@@ -69,6 +69,8 @@
 /* Login */
 
 /* Register  As Pet Owner*/
+
+/* Register As Pet Adopter */
 if (isset($_POST['Register_PetAdopter'])) {
     $adopter_full_name = mysqli_real_escape_string($mysqli, $_POST['adopter_full_name']);
     $adoper_contacts  = mysqli_real_escape_string($mysqli, $_POST['adoper_contacts']);
@@ -97,9 +99,6 @@ if (isset($_POST['Register_PetAdopter'])) {
         }
     }
 }
-
- /* Register As Pet Adopter */
-
  /* Reset Password Step 1 */
 
  /* Reset Password Step 2 */
