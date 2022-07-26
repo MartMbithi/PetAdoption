@@ -70,78 +70,60 @@ require_once('../app/helpers/auth.php');
 require_once('../app/partials/head.php');
 ?>
 
-<body>
-    <!-- ===============================================-->
-    <!--    Main Content-->
-    <!-- ===============================================-->
-    <main class="main" id="top" style="background-image: url('../assets/app_data/backgrounds/bg_1.jpg'); background-size: cover;">
+<body class="hold-transition login-page" style="background-image: url('../assets/app_data/bg_1.jpg'); background-size: cover;">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href=""><b>Pet Adoption System</b></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
 
-        <div class="container">
-            <div class="row flex-center min-vh-100 py-6">
-                <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
-                    <a class="d-block text-center mb-4" href=".">
-                        <img class="mr-2" src="../assets/app_data/illustrations/falcon.png" alt="" width="58" />
-                        <span class="text-sans-serif font-weight-extra-bold fs-5 d-inline-block">Pet Adoption</span>
-                    </a>
-                    <div class="card">
-                        <div class="card-body p-5">
-                            <div class="row text-left justify-content-between">
-                                <div class="col-auto">
-                                    <h5>Sign In</h5>
-                                </div>
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" required name="login_email" placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
                             </div>
-                            <hr>
-                            <form method="POST">
-                                <div class="form-group">
-                                    <input class="form-control" type="email" required name="login_email" placeholder="Email address" />
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="password" name="login_password" required placeholder="Password" />
-                                </div>
-                                <div class="row justify-content-between">
-                                    <div class="col-auto">
-                                        <div class="custom-control custom-checkbox"><input class="custom-control-input" id="customCheckRemember" type="checkbox" /><label class="custom-control-label" for="customCheckRemember">Remember me</label></div>
-                                    </div>
-                                    <div class="col-auto"><a class="fs--1" href="reset_password">Forgot Password?</a></div>
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-block mt-3" type="submit" name="Login" name="submit">Log in</button>
-                                </div>
-                                <div class="w-100 position-relative text-center mt-4">
-                                    <hr class="text-300" />
-                                    <div class="position-absolute absolute-centered t-0 px-3 bg-white text-sans-serif fs--1 text-500 text-nowrap">Or Sign Up As</div>
-                                </div>
-                            </form>
-                            <div class="form-group mb-0">
-                                <div class="row no-gutters">
-                                    <div class="col-sm-6 pr-sm-1">
-                                        <a class="btn btn-outline-google-plus btn-sm btn-block mt-2" href="sign_up?user=PetOwner">
-                                            Pet Owner
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-6 pl-sm-1">
-                                        <a class="btn btn-outline-facebook btn-sm btn-block mt-2" href="sign_up?user=PetAdopter">
-                                            Pet Adopter
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" required name="login_password" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" name="Login" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+                <hr>
+                <div class="social-auth-links text-center mb-3">
+                    <p>- OR -</p>
+                    <a href="sign_up?user=PetOwner" class="btn btn-block btn-primary">
+                        <i class="fab fa-facebook mr-2"></i> Sign Up As Pet Owner
+                    </a>
+                    <a href="sign_up?user=PetAdopter" class="btn btn-block btn-danger">
+                        <i class="fab fa-google-plus mr-2"></i> Sign Up As Adopter
+                    </a>
                 </div>
+                <p class="mb-1">
+                    <a href="forgot-password.html">I forgot my password</a>
+                </p>
             </div>
+            <!-- /.login-card-body -->
         </div>
-    </main><!-- ===============================================-->
-    <!--    End of Main Content-->
-    <!-- ===============================================-->
-
-
-    <!-- ===============================================-->
-    <!--    JavaScripts-->
-    <!-- ===============================================-->
+    </div>
+    <!-- /.login-box -->
     <?php require_once('../app/partials/scripts.php'); ?>
 </body>
-
-
-</html>
