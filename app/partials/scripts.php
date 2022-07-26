@@ -1,15 +1,19 @@
-<script src="../assets/app_js/jquery.min.js"></script>
-<script src="../assets/app_js/popper.min.js"></script>
-<script src="../assets/app_js/bootstrap.js"></script>
-<script src="../assets/app_js/plugins.js"></script>
-<script src="../assets/plugins/stickyfilljs/stickyfill.min.js"></script>
-<script src="../assets/plugins/sticky-kit/sticky-kit.min.js"></script>
-<script src="../assets/plugins/is_js/is.min.js"></script>
-<script src="../assets/app_js/theme.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/popper.min.js"></script>
+<script src="../assets/js/bootstrap.js"></script>
+<script src="../assets/js/plugins.js"></script>
+<script src="../assets/lib/stickyfilljs/stickyfill.min.js"></script>
+<script src="../assets/lib/sticky-kit/sticky-kit.min.js"></script>
+<script src="../assets/lib/is_js/is.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics-->
+<script src="../assets/lib/chart.js/Chart.min.js"></script>
+<script src="../assets/lib/jqvmap/jquery.vmap.js"></script>
+<script src="../assets/lib/jqvmap/maps/jquery.vmap.world.js" charset="utf-8"></script>
+<script src="../assets/lib/jqvmap/maps/jquery.vmap.usa.js" charset="utf-8"></script>
+<script src="../assets/js/theme.js"></script>
 <!-- Load Alerts -->
-<script src="../assets/plugins/sweetalerts/sweetalert2.min.js"></script>
+<script src="../assets/lib/sweetalerts/sweetalert2.min.js"></script>
 <!-- Toastr -->
-<script src="../assets/plugins/toastr/toastr.min.js"></script>
+<script src="../assets/lib/toastr/toastr.min.js"></script>
 <!-- Init Sweet Alerts -->
 <?php if (isset($success)) { ?>
     <!-- Pop Success Alert -->

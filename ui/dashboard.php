@@ -689,7 +689,7 @@ require_once('../app/partials/head.php');
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
-    <?php require_once('../app/partials/scripts.php'); ?>
+    <?php include('../app/partials/scripts.php'); ?>
 </body>
 
 </html>
