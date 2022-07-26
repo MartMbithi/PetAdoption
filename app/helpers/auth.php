@@ -69,6 +69,46 @@
 /* Login */
 
 /* Register  As Pet Owner*/
+if (isset($_POST['Register_PetOwner'])) {
+    $pet_owner_full_name = mysqli_real_escape_string($mysqli, $_POST['pet_owner_full_name']);
+    $pet_owner_email  = mysqli_real_escape_string($mysqli, $_POST['pet_owner_email']);
+    $pet_owner_contacts = mysqli_real_escape_string($mysqli, $_POST['pet_owner_contacts']);
+    $pet_owner_address  = mysqli_real_escape_string($mysqli, $_POST['pet_owner_address']);
+    $new_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['new_password'])));
+    $confirm_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['confirm_password'])));
+    $login_rank = mysqli_real_escape_string($mysqli, 'Pet Owner');
+    $login_id = mysqli_real_escape_string($mysqli, $sys_gen_alt_id);
+
+    /* Check If Passwords Match */
+    if ($new_password != $confirm_password) {
+        $err = "Passwords Does Not Match";
+    } else {
+        /* Avoid Duplications */
+        $sql = "SELECT * FROM  pet_owner   WHERE pet_owner_contacts ='{$pet_owner_contacts}' || pet_owner_email = '{$pet_owner_email}' ";
+        $res = mysqli_query($mysqli, $sql);
+        if (mysqli_num_rows($res) > 0) {
+            $row = mysqli_fetch_assoc($res);
+            if (
+                $pet_owner_email == $row['pet_owner_email'] ||
+                $pet_owner_contacts == $row['pet_owner_contacts']
+            ) {
+                $err = 'Pet Owner Contacts Or Email Already Exists';
+            }
+        } else {
+            $adopter_sql = "INSERT INTO pet_owner (pet_owner_full_name, pet_owner_email, pet_owner_contacts, pet_owner_address, pet_owner_login_id)
+            VALUES('{$pet_owner_full_name}', '{$pet_owner_email}', '{$pet_owner_contacts}', '{$pet_owner_address}', '{$login_id}')";
+            $auth_sql = "INSERT INTO login (login_id, login_email, login_password, login_rank)
+            VALUES('{$login_id}', '{$pet_owner_email}', '{$new_password}', '{$login_rank}')";
+
+            /* Prepare */
+            if (mysqli_query($mysqli, $auth_sql) && mysqli_query($mysqli, $adopter_sql)) {
+                $success = "Account Created, Proceed To Login";
+            } else {
+                $err = "Failed!, Please Try Again";
+            }
+        }
+    }
+}
 
 /* Register As Pet Adopter */
 if (isset($_POST['Register_PetAdopter'])) {
