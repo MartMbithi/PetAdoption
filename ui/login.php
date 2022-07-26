@@ -73,10 +73,10 @@ require_once('../app/partials/head.php');
 <body class="hold-transition login-page" style="background-image: url('../assets/app_data/bg_1.jpg'); background-size: cover;">
     <div class="login-box">
         <div class="login-logo">
-            <a href=""><b>Pet Adoption System</b></a>
+            <h2 href="" class="text-light"><b>Pet Adoption System</b></h2>
         </div>
         <!-- /.login-logo -->
-        <div class="card">
+        <div class="card border border-success">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
@@ -99,6 +99,7 @@ require_once('../app/partials/head.php');
                     </div>
                     <div class="row">
                         <div class="col-8">
+                            <a href="reset_password">I forgot my password</a>
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
@@ -111,15 +112,12 @@ require_once('../app/partials/head.php');
                 <div class="social-auth-links text-center mb-3">
                     <p>- OR -</p>
                     <a href="sign_up?user=PetOwner" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Sign Up As Pet Owner
+                        Sign Up As Pet Owner
                     </a>
                     <a href="sign_up?user=PetAdopter" class="btn btn-block btn-danger">
-                        <i class="fab fa-google-plus mr-2"></i> Sign Up As Adopter
+                        Sign Up As Adopter
                     </a>
                 </div>
-                <p class="mb-1">
-                    <a href="forgot-password.html">I forgot my password</a>
-                </p>
             </div>
             <!-- /.login-card-body -->
         </div>

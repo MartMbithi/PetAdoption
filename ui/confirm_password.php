@@ -70,53 +70,49 @@ require_once('../app/helpers/auth.php');
 require_once('../app/partials/head.php');
 ?>
 
-<body>
-    <!-- ===============================================-->
-    <!--    Main Content-->
-    <!-- ===============================================-->
-    <main class="main" id="top" style="background-image: url('../assets/app_data/backgrounds/bg_1.jpg'); background-size: cover;">
 
-        <div class="container">
-            <div class="row flex-center min-vh-100 py-6">
-                <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
-                    <a class="d-block text-center mb-4" href=".">
-                        <img class="mr-2" src="../assets/app_data/illustrations/falcon.png" alt="" width="58" />
-                        <span class="text-sans-serif font-weight-extra-bold fs-5 d-inline-block">Pet Adoption</span>
-                    </a>
-                    <div class="card">
-                        <div class="card-body p-5">
-                            <div class="row text-left justify-content-between">
-                                <div class="col-auto">
-                                    <h5>Confirm Password</h5>
-                                </div>
+<body class="hold-transition login-page" style="background-image: url('../assets/app_data/bg_1.jpg'); background-size: cover;">
+    <div class="login-box">
+        <div class="login-logo">
+            <h2 href="" class="text-light"><b>Pet Adoption System</b></h2>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card border border-success">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Enter Your New Password And Confirm It</p>
+
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" required name="new_password" placeholder="New Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
                             </div>
-                            <hr>
-                            <form method="POST">
-                                <div class="form-group">
-                                    <input class="form-control" type="password" required name="new_password" placeholder="New Password" />
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="password" required name="confirm_password" placeholder="Confirm Password" />
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-block mt-3" type="submit" name="Confirm_Password" name="submit">Confirm Password</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
-                </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" required name="confirm_password" placeholder="Confirm Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-6">
+                            <button type="submit" name="Confirm_Password" class="btn btn-primary btn-block">Reset</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
             </div>
+            <!-- /.login-card-body -->
         </div>
-    </main><!-- ===============================================-->
-    <!--    End of Main Content-->
-    <!-- ===============================================-->
-
-
-    <!-- ===============================================-->
-    <!--    JavaScripts-->
-    <!-- ===============================================-->
+    </div>
+    <!-- /.login-box -->
     <?php require_once('../app/partials/scripts.php'); ?>
 </body>
-
-
-</html>
