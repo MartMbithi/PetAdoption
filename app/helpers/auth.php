@@ -155,6 +155,22 @@ if (isset($_POST['Register_PetAdopter'])) {
         }
     }
 }
- /* Reset Password Step 1 */
+
+
+/* Reset Password Step 1 */
+if (isset($_POST['Reset_Password'])) {
+    $login_email = mysqli_real_escape_string($mysqli, $_POST['login_email']);
+    $sql = "SELECT * FROM  login WHERE login_email = '{$login_email}'";
+    $res = mysqli_query($mysqli, $sql);
+    if (mysqli_num_rows($res) > 0) {
+        /* Redirect User To Confirm Password */
+        $_SESSION['success'] = 'Proceed To Confirm Password';
+        $_SESSION['login_email'] = $login_email;
+        header('Location: confirm_password');
+        exit;
+    } else {
+        $err = "Email Address  Does Not Exist";
+    }
+}
 
  /* Reset Password Step 2 */
