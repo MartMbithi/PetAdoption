@@ -86,16 +86,28 @@ if (isset($_POST['Register_PetAdopter'])) {
         $err = "Passwords Does Not Match";
     } else {
         /* Avoid Duplications */
-        $adopter_sql = "INSERT INTO adopter (adopter_full_name, adoper_contacts, adopter_email, adopter_login_id, adopter_location)
-        VALUES('{$adopter_full_name}', '{$adoper_contacts}', '{$adopter_email}', '{$login_id}', '{$adopter_location}')";
-        $auth_sql = "INSERT INTO login (login_id, login_email, login_password, login_rank)
-        VALUES('{$login_id}', '{$adopter_email}', '{$new_password}', '{$login_rank}')";
-
-        /* Prepare */
-        if (mysqli_query($mysqli, $auth_sql) && mysqli_query($mysqli, $adopter_sql)) {
-            $success = "Account Created, Proceed To Login";
+        $sql = "SELECT * FROM  adopter   WHERE adoper_contacts ='{$adoper_contacts}' || adopter_email = '{$adopter_email}' ";
+        $res = mysqli_query($mysqli, $sql);
+        if (mysqli_num_rows($res) > 0) {
+            $row = mysqli_fetch_assoc($res);
+            if (
+                $adopter_email == $row['adopter_email'] ||
+                $adoper_contacts == $row['adoper_contacts']
+            ) {
+                $err = 'Adopter Contacts Or Email Already Exists';
+            }
         } else {
-            $err = "Failed!, Please Try Again";
+            $adopter_sql = "INSERT INTO adopter (adopter_full_name, adoper_contacts, adopter_email, adopter_login_id, adopter_location)
+            VALUES('{$adopter_full_name}', '{$adoper_contacts}', '{$adopter_email}', '{$login_id}', '{$adopter_location}')";
+            $auth_sql = "INSERT INTO login (login_id, login_email, login_password, login_rank)
+            VALUES('{$login_id}', '{$adopter_email}', '{$new_password}', '{$login_rank}')";
+
+            /* Prepare */
+            if (mysqli_query($mysqli, $auth_sql) && mysqli_query($mysqli, $adopter_sql)) {
+                $success = "Account Created, Proceed To Login";
+            } else {
+                $err = "Failed!, Please Try Again";
+            }
         }
     }
 }
