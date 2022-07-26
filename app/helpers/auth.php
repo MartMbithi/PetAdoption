@@ -102,7 +102,9 @@ if (isset($_POST['Register_PetOwner'])) {
 
             /* Prepare */
             if (mysqli_query($mysqli, $auth_sql) && mysqli_query($mysqli, $adopter_sql)) {
-                $success = "Account Created, Proceed To Login";
+                $_SESSION['success'] = "Pet Owner Account Created, Proceed To Log In";
+                header('Location: ../');
+                exit;
             } else {
                 $err = "Failed!, Please Try Again";
             }
@@ -144,7 +146,9 @@ if (isset($_POST['Register_PetAdopter'])) {
 
             /* Prepare */
             if (mysqli_query($mysqli, $auth_sql) && mysqli_query($mysqli, $adopter_sql)) {
-                $success = "Account Created, Proceed To Login";
+                $_SESSION['success'] = "Pet Adopter Account Created, Proceed To Log In";
+                header('Location: ../');
+                exit;
             } else {
                 $err = "Failed!, Please Try Again";
             }
