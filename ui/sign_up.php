@@ -100,27 +100,27 @@ require_once('../app/partials/head.php');
                                     <div class="form-row">
                                         <div class="form-group col-12">
                                             <label>Full Names</label>
-                                            <input class="form-control" type="text" name="adopter_full_name">
+                                            <input class="form-control" required type="text" name="adopter_full_name">
                                         </div>
                                         <div class="form-group col-6">
                                             <label>Contacts</label>
-                                            <input class="form-control" type="text" name="adoper_contacts">
+                                            <input class="form-control" required type="text" name="adoper_contacts">
                                         </div>
                                         <div class="form-group col-6">
                                             <label>Email Address</label>
-                                            <input class="form-control" type="text" name="adopter_email">
+                                            <input class="form-control" required type="text" name="adopter_email">
                                         </div>
                                         <div class="form-group col-12">
                                             <label>Address</label>
-                                            <input class="form-control" type="text" name="adopter_location">
+                                            <input class="form-control" required type="text" name="adopter_location">
                                         </div>
                                         <div class="form-group col-6">
                                             <label>Login Password</label>
-                                            <input class="form-control" type="password" name="new_password">
+                                            <input class="form-control" required type="password" name="new_password">
                                         </div>
                                         <div class="form-group col-6">
                                             <label>Confirm Password</label>
-                                            <input class="form-control" type="password" name="confirm_password">
+                                            <input class="form-control" required type="password" name="confirm_password">
                                         </div>
                                     </div>
 
@@ -149,27 +149,27 @@ require_once('../app/partials/head.php');
                                     <div class="form-row">
                                         <div class="form-group col-12">
                                             <label>Full Names</label>
-                                            <input class="form-control" type="text" name="pet_owner_full_name">
+                                            <input class="form-control" required type="text" name="pet_owner_full_name">
                                         </div>
                                         <div class="form-group col-6">
                                             <label>Contacts</label>
-                                            <input class="form-control" type="text" name="pet_owner_contacts">
+                                            <input class="form-control" required type="text" name="pet_owner_contacts">
                                         </div>
                                         <div class="form-group col-6">
                                             <label>Email Address</label>
-                                            <input class="form-control" type="text" name="pet_owner_email">
+                                            <input class="form-control" required type="text" name="pet_owner_email">
                                         </div>
                                         <div class="form-group col-12">
                                             <label>Address</label>
-                                            <input class="form-control" type="text" name="pet_owner_address">
+                                            <input class="form-control" required type="text" name="pet_owner_address">
                                         </div>
                                         <div class="form-group col-6">
                                             <label>Login Password</label>
-                                            <input class="form-control" type="password" name="new_password">
+                                            <input class="form-control" required type="password" name="new_password">
                                         </div>
                                         <div class="form-group col-6">
                                             <label>Confirm Password</label>
-                                            <input class="form-control" type="password" name="confirm_password">
+                                            <input class="form-control" required type="password" name="confirm_password">
                                         </div>
                                     </div>
 
