@@ -64,6 +64,7 @@
  *   TORT OR ANY OTHER THEORY OF LIABILITY, EXCEED THE LICENSE FEE PAID BY YOU, IF ANY.
  *
  */
+session_start();
 require_once('../app/settings/config.php');
 require_once('../app/settings/codeGen.php');
 /* Load Auth Helper */
