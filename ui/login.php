@@ -105,7 +105,7 @@ require_once('../app/partials/head.php');
                                     <div class="col-auto"><a class="fs--1" href="reset_password">Forgot Password?</a></div>
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-primary btn-block mt-3" type="submit" name="login" name="submit">Log in</button>
+                                    <button class="btn btn-primary btn-block mt-3" type="submit" name="Login" name="submit">Log in</button>
                                 </div>
                                 <div class="w-100 position-relative text-center mt-4">
                                     <hr class="text-300" />

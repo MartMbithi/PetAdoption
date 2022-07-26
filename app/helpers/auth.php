@@ -67,6 +67,37 @@
 
 
 /* Login */
+if (isset($_POST['Login'])) {
+    $login_email = mysqli_real_escape_string($mysqli, $_POST['login_email']);
+    $login_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['login_password'])));
+
+    /* Persist*/
+    $stmt = $mysqli->prepare("SELECT login_id, login_email, login_rank, login_password FROM login
+    WHERE login_email = '{$login_email}' AND login_password = '{$login_password}'");
+    $stmt->execute();
+    $stmt->bind_result($login_id, $login_email, $login_rank, $login_password);
+    $rs = $stmt->fetch();
+    /* Persist Sessions */
+    $_SESSION['login_id'] = $login_id;
+    $_SESSION['login_rank'] = $login_rank;
+
+    /* Determiner Where To Redirect Based On Access Leveles */
+    if ($rs && $login_rank == 'Administrator') {
+        $_SESSION['success'] = "Logged In With Administrator Access Level";
+        header('Location: dashboard');
+        exit;
+    } else if ($rs && $login_rank == 'Pet Owner') {
+        $_SESSION['success'] = 'Login Successfully';
+        header('Location: owner_home');
+        exit;
+    } else if ($rs && $login_rank == 'Pet Adopter') {
+        $_SESSION['success'] = 'Logged In As Counselor';
+        header('Location: adopter_home');
+        exit;
+    } else {
+        $err = "Failed!, Incorrect Login Credentials";
+    }
+}
 
 /* Register  As Pet Owner*/
 if (isset($_POST['Register_PetOwner'])) {

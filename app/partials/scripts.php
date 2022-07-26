@@ -16,7 +16,7 @@
     <script>
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top',
+            position: 'top-left',
             showConfirmButton: false,
             timer: 3000
         });
