@@ -107,9 +107,10 @@ require_once('../app/partials/head.php');
                     <!-- Info boxes -->
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-md"></i></span>
-
+                            <div class="info-box mb-3 callout callout-info">
+                                <span class="info-box-icon bg-info elevation-1">
+                                    <i class="fas fa-user-md"></i>
+                                </span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Registered Pet Adopters</span>
                                     <span class="info-box-number">
@@ -122,7 +123,7 @@ require_once('../app/partials/head.php');
                         </div>
                         <!-- /.col -->
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3">
+                            <div class="info-box mb-3 callout callout-danger">
                                 <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
 
                                 <div class="info-box-content">
@@ -139,7 +140,7 @@ require_once('../app/partials/head.php');
                         <div class="clearfix hidden-md-up"></div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3">
+                            <div class="info-box mb-3 callout callout-success">
                                 <span class="info-box-icon bg-success elevation-1"><i class="fas fa-cat"></i></span>
 
                                 <div class="info-box-content">
@@ -152,7 +153,7 @@ require_once('../app/partials/head.php');
                         </div>
                         <!-- /.col -->
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3">
+                            <div class="info-box mb-3 callout callout-warning">
                                 <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-check"></i></span>
 
                                 <div class="info-box-content">
@@ -169,7 +170,7 @@ require_once('../app/partials/head.php');
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card">
+                            <div class="card card-primary card-outline">
                                 <div class="card-header">
                                     <h5 class="card-title">Monthly Adoption Report</h5>
                                 </div>
@@ -177,6 +178,50 @@ require_once('../app/partials/head.php');
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12">
+                                            <table class="table table-bordered text-truncate" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Pet Details</th>
+                                                        <th>Pet Owner Details</th>
+                                                        <th>Adopted By</th>
+                                                        <th>Date Adopted</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <?php
+                                                        $ret = "SELECT * FROM pet_adoption pa
+                                                        INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
+                                                        INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
+                                                        INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id";
+                                                        $stmt = $mysqli->prepare($ret);
+                                                        $stmt->execute(); //ok
+                                                        $res = $stmt->get_result();
+                                                        while ($adoption = $res->fetch_object()) {
+                                                        ?>
+                                                            <td>
+                                                                <?php echo $adoption->pet_name; ?><br>
+                                                                Breed: <?php echo $adoption->pet_breed; ?><br>
+                                                                Age: <?php echo $adoption->pet_age; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $adoption->pet_owner_full_name; ?><br>
+                                                                Email: <?php echo $adoption->pet_owner_email; ?><br>
+                                                                Contacts: <?php echo $adoption->pet_owner_contacts; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $adoption->adopter_full_name; ?><br>
+                                                                Email: <?php echo $adoption->adopter_email; ?><br>
+                                                                Contacts: <?php echo $adoption->adoper_contacts; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo date('d M Y', strtotime($adoption->pet_adoption_date_adopted)); ?>
+                                                            </td>
+                                                        <?php
+                                                        } ?>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                     <!-- /.row -->
