@@ -76,7 +76,7 @@ require_once('../app/partials/head.php');
             <h2 href="" class="text-light"><b>Pet Adoption System</b></h2>
         </div>
         <!-- /.login-logo -->
-        <div class="card border border-success">
+        <div class="card border border-success ">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
