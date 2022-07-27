@@ -77,15 +77,25 @@ if (isset($_POST['Add_Administrator'])) {
     if ($new_password != $confirm_password) {
         $err = "Failed!, Passwords Does Not Match";
     } else {
-        /* Persist */
-        $sql = "INSERT INTO login (login_id, login_email, login_password, login_rank)
-        VALUES('{$login_id}', '{$login_email}', '{$new_password}', 'Administrator')";
-
-        /* Prepare */
-        if (mysqli_query($mysqli, $sql)) {
-            $success = "Administrator Registered";
+        /* Avoid Duplication */
+        $sql = "SELECT * FROM  login   WHERE  login_email='{$login_email}' AND login_rank = 'Administrator' ";
+        $res = mysqli_query($mysqli, $sql);
+        if (mysqli_num_rows($res) > 0) {
+            $row = mysqli_fetch_assoc($res);
+            if ($login_email == $row['login_email']) {
+                $err = 'Email Already Exists';
+            }
         } else {
-            $err = "Failed!, Please Try Again";
+            /* Persist */
+            $sql = "INSERT INTO login (login_id, login_email, login_password, login_rank)
+            VALUES('{$login_id}', '{$login_email}', '{$new_password}', 'Administrator')";
+
+            /* Prepare */
+            if (mysqli_query($mysqli, $sql)) {
+                $success = "Administrator Registered";
+            } else {
+                $err = "Failed!, Please Try Again";
+            }
         }
     }
 }
