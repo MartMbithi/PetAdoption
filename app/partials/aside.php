@@ -8,9 +8,9 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
+        <nav class="mt-2" id="app_sidebar">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-item">
+                <li class="nav-item" id="dashboard">
                     <a href="dashboard" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -18,7 +18,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="admins">
                     <a href="admins" class="nav-link">
                         <i class="nav-icon fas fa-user-shield"></i>
                         <p>
@@ -26,7 +26,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="pet_owners">
                     <a href="pet_owners" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
@@ -34,7 +34,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="pet_owners">
                     <a href="pet_adopters" class="nav-link">
                         <i class="nav-icon fas fa-user-md"></i>
                         <p>
@@ -42,7 +42,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="pets">
                     <a href="pets" class="nav-link">
                         <i class="nav-icon fas fa-cat"></i>
                         <p>
@@ -50,7 +50,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="pet_adoptions">
                     <a href="pet_adoptions" class="nav-link">
                         <i class="nav-icon fas fa-check"></i>
                         <p>
@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li class="nav-header">Reports</li>
-                <li class="nav-item">
+                <li class="nav-item" id="pet_adoptions_reports">
                     <a href="pet_adoptions_reports" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
                         <p>
@@ -72,4 +72,5 @@
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
+    
 </aside>

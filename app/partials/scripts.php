@@ -84,3 +84,14 @@ if (isset($info)) { ?>
         $('.table td').css('white-space', 'initial');
     });
 </script>
+<script type="text/javascript">
+    /* Only Add Active To Active Class */
+    jQuery(function($) {
+        var path = window.location.href;
+        $('ul a').each(function() {
+            if (this.href === path) {
+                $(this).addClass('active');
+            }
+        });
+    });
+</script>
