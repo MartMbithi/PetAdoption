@@ -21,6 +21,8 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+<script src="../assets/js/initializer.js"></script>
+
 <!-- Init Sweet Alerts -->
 <?php if (isset($success)) { ?>
     <!-- Pop Success Alert -->
@@ -71,27 +73,3 @@ if (isset($info)) { ?>
 
 <?php }
 ?>
-<script>
-    /* Stop Double Resubmission */
-    if (window.history.replaceState) {
-        window.history.replaceState(null, null, window.location.href);
-    }
-    $(function() {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-    $(document).ready(function() {
-        $('.table').DataTable();
-        $('.table td').css('white-space', 'initial');
-    });
-</script>
-<script type="text/javascript">
-    /* Only Add Active To Active Class */
-    jQuery(function($) {
-        var path = window.location.href;
-        $('ul a').each(function() {
-            if (this.href === path) {
-                $(this).addClass('active');
-            }
-        });
-    });
-</script>
