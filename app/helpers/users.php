@@ -90,5 +90,26 @@ if (isset($_POST['Add_Administrator'])) {
     }
 }
 
- /* Update Admin */
+/* Update Admin */
+if (isset($_POST['Update_Administrator'])) {
+    $login_id = mysqli_real_escape_string($mysqli, $_POST['login_id']);
+    $login_email = mysqli_real_escape_string($mysqli, $_POST['login_email']);
+    $new_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['new_password'])));
+    $confirm_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['confirm_password'])));
+    /* Check If Passwords Match */
+    if ($new_password != $confirm_password) {
+        $err = "Failed!, Passwords Does Not Match";
+    } else {
+        /* Persist */
+        $sql = "UPDATE login SET login_email = '{$login_email}', login_password = '{$confirm_password}'
+        WHERE login_id  = '{$login_id}'";
+
+        /* Prepare */
+        if (mysqli_query($mysqli, $sql)) {
+            $success = "Administrator Account Updated";
+        } else {
+            $err = "Failed!, Please Try Again";
+        }
+    }
+}
  /* Delete Admin */

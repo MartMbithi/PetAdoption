@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>New Password</label>
-                            <input type="text" name="new_password" required class="form-control">
+                            <input type="password" name="new_password" required class="form-control">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Confirm Password</label>
