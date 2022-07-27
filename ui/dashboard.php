@@ -106,7 +106,7 @@ require_once('../app/partials/head.php');
                 <div class="container-fluid">
                     <!-- Info boxes -->
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-3">
+                        <div class="col-12 col-sm-6 col-md-3  ">
                             <div class="info-box mb-3 callout callout-info">
                                 <span class="info-box-icon bg-info elevation-1">
                                     <i class="fas fa-user-md"></i>
