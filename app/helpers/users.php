@@ -112,4 +112,19 @@ if (isset($_POST['Update_Administrator'])) {
         }
     }
 }
- /* Delete Admin */
+
+
+/* Delete Admin */
+if (isset($_POST['Delete_Administrator'])) {
+    $login_id  = mysqli_real_escape_string($mysqli, $_POST['login_id']);
+
+    /* Persist */
+    $sql = "DELETE FROM login WHERE login_id = '{$login_id}'";
+
+    /* Prepare */
+    if (mysqli_query($mysqli, $sql)) {
+        $success = "Administrator Account Deleted";
+    } else {
+        $err = "Failed!, Please Try Again";
+    }
+}
