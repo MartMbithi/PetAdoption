@@ -182,6 +182,8 @@ require_once('../app/partials/head.php');
                                                                 <a data-toggle="modal" href="#delete_<?php echo $admins->login_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
                                                             </td>
                                                         <?php
+                                                            /* Manage Admin Modals */
+                                                            include('../app/modals/administrators.php');
                                                         } ?>
                                                     </tr>
                                                 </tbody>
