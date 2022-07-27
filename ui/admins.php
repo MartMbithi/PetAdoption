@@ -66,9 +66,10 @@
  */
 session_start();
 require_once('../app/settings/config.php');
+require_once('../app/settings/codeGen.php');
 require_once('../app/settings/checklogin.php');
 check_login();
-require_once('../app/helpers/analytics.php');
+require_once('../app/helpers/users.php');
 require_once('../app/partials/head.php');
 ?>
 
@@ -121,15 +122,15 @@ require_once('../app/partials/head.php');
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label>Login Email</label>
-                                        <input type="email" name="farmer_email" required class="form-control">
+                                        <input type="email" name="login_email" required class="form-control">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>New Password</label>
-                                        <input type="text" name="farmer_phone" required class="form-control">
+                                        <input type="password" name="new_password" required class="form-control">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Confirm Password</label>
-                                        <input type="password" name="login_password" required class="form-control">
+                                        <input type="password" name="confirm_password" required class="form-control">
                                     </div>
                                 </div>
                                 <br>
@@ -162,15 +163,15 @@ require_once('../app/partials/head.php');
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <?php
-                                                        $ret = "SELECT * FROM login 
-                                                        WHERE login_rank = 'Administrator'";
-                                                        $stmt = $mysqli->prepare($ret);
-                                                        $stmt->execute(); //ok
-                                                        $res = $stmt->get_result();
-                                                        while ($admins = $res->fetch_object()) {
-                                                        ?>
+                                                    <?php
+                                                    $ret = "SELECT * FROM login 
+                                                    WHERE login_rank = 'Administrator'";
+                                                    $stmt = $mysqli->prepare($ret);
+                                                    $stmt->execute(); //ok
+                                                    $res = $stmt->get_result();
+                                                    while ($admins = $res->fetch_object()) {
+                                                    ?>
+                                                        <tr>
                                                             <td>
                                                                 <?php echo $admins->login_email; ?>
                                                             </td>
@@ -181,11 +182,11 @@ require_once('../app/partials/head.php');
                                                                 <a data-toggle="modal" href="#update_<?php echo $admins->login_id; ?>" class="badge  badge-pill badge-warning"><em class="fas fa-user-edit"></em> Edit</a>
                                                                 <a data-toggle="modal" href="#delete_<?php echo $admins->login_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
                                                             </td>
-                                                        <?php
-                                                            /* Manage Admin Modals */
-                                                            include('../app/modals/administrators.php');
-                                                        } ?>
-                                                    </tr>
+                                                        </tr>
+                                                    <?php
+                                                        /* Manage Admin Modals */
+                                                        include('../app/modals/administrators.php');
+                                                    } ?>
                                                 </tbody>
                                             </table>
                                         </div>
