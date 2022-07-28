@@ -13,16 +13,37 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label>Login Email</label>
-                            <input type="hidden" value="<?php echo $admins->login_id; ?>" name="login_id" required class="form-control">
-                            <input type="email" value="<?php echo $admins->login_email; ?>" name="login_email" required class="form-control">
+                            <div class="input-group mb-3">
+                                <input type="hidden" value="<?php echo $admins->login_id; ?>" name="login_id" required class="form-control">
+                                <input type="email" value="<?php echo $admins->login_email; ?>" name="login_email" required class="form-control">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="text-primary fas fa-envelope"></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label>New Password</label>
-                            <input type="password" name="new_password" required class="form-control">
+                            <div class="input-group mb-3">
+                                <input type="password" name="new_password" required class="form-control">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="text-primary fas fa-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Confirm Password</label>
-                            <input type="password" name="confirm_password" required class="form-control">
+                            <div class="input-group mb-3">
+                                <input type="password" name="confirm_password" required class="form-control">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="text-primary fas fa-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -54,8 +75,8 @@
                     <br>
                     <!-- Hide This -->
                     <input type="hidden" name="login_id" value="<?php echo $admins->login_id; ?>">
-                    <button type="button" class="text-center btn btn-success" data-dismiss="modal"><i class="fas fa-check"></i> No</button>
-                    <button type="submit" class="text-center btn btn-danger" name="Delete_Administrator"><i class="fas fa-trash"></i> Yes Delete</button>
+                    <button type="button" class="text-center btn btn-outline-primary" data-dismiss="modal"><i class="fas fa-check"></i> No</button>
+                    <button type="submit" class="text-center btn btn-outline-danger" name="Delete_Administrator"><i class="fas fa-trash"></i> Yes Delete</button>
                 </div>
             </form>
         </div>

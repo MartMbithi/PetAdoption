@@ -102,7 +102,9 @@ require_once('../app/partials/head.php');
                 </div><!-- /.container-fluid -->
                 <div class="card-header p-2">
                     <h3 class="text-right">
-                        <button type="button" data-toggle="modal" data-target="#add_modal" class="btn btn-outline-primary"> Register New Administrator</button>
+                        <button type="button" data-toggle="modal" data-target="#add_modal" class="btn btn-outline-primary">
+                            <i class="fas fa-user-plus"></i> Register New Administrator
+                        </button>
                     </h3>
                 </div><!-- /.card-header -->
             </div>
@@ -122,15 +124,36 @@ require_once('../app/partials/head.php');
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label>Login Email</label>
-                                        <input type="email" name="login_email" required class="form-control">
+                                        <div class="input-group mb-3">
+                                            <input type="email" name="login_email" required class="form-control">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-envelope"></span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>New Password</label>
-                                        <input type="password" name="new_password" required class="form-control">
+                                        <div class="input-group mb-3">
+                                            <input type="password" name="new_password" required class="form-control">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-lock"></span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Confirm Password</label>
-                                        <input type="password" name="confirm_password" required class="form-control">
+                                        <div class="input-group mb-3">
+                                            <input type="password" name="confirm_password" required class="form-control">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-lock"></span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <br>
