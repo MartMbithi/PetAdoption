@@ -85,7 +85,7 @@ require_once('../app/partials/head.php');
                         <input type="email" class="form-control" required name="login_email" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="text-primary fas fa-envelope"></span>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@ require_once('../app/partials/head.php');
                         <input type="password" class="form-control" required name="login_password" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                                <span class="text-primary fas fa-lock"></span>
                             </div>
                         </div>
                     </div>

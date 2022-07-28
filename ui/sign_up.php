@@ -87,27 +87,69 @@ require_once('../app/partials/head.php');
                         <div class="form-row">
                             <div class="form-group col-12">
                                 <label>Full Names</label>
-                                <input class="form-control" required type="text" name="adopter_full_name">
+                                <div class="input-group mb-3">
+                                    <input class="form-control" required type="text" name="adopter_full_name">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="text-primary fas fa-user-tag"></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group col-6">
                                 <label>Contacts</label>
-                                <input class="form-control" required type="text" name="adoper_contacts">
+                                <div class="input-group mb-3">
+                                    <input class="form-control" required type="text" name="adoper_contacts">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="text-primary fas fa-phone"></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group col-6">
                                 <label>Email Address</label>
-                                <input class="form-control" required type="text" name="adopter_email">
+                                <div class="input-group mb-3">
+                                    <input class="form-control" required type="text" name="adopter_email">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="text-primary fas fa-envelope"></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group col-12">
                                 <label>Address</label>
-                                <input class="form-control" required type="text" name="adopter_location">
+                                <div class="input-group mb-3">
+                                    <input class="form-control" required type="text" name="adopter_location">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="text-primary fas fa-map-marker-alt"></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group col-6">
                                 <label>Login Password</label>
-                                <input class="form-control" required type="password" name="new_password">
+                                <div class="input-group mb-3">
+                                    <input class="form-control" required type="password" name="new_password">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="text-primary fas fa-user-lock"></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group col-6">
                                 <label>Confirm Password</label>
-                                <input class="form-control" required type="password" name="confirm_password">
+                                <div class="input-group mb-3">
+                                    <input class="form-control" required type="password" name="confirm_password">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="text-primary fas fa-user-lock"></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -117,7 +159,9 @@ require_once('../app/partials/head.php');
                             <div class="col-auto"><a class="fs--1" href="../">Already Has Account?</a></div>
                         </div>
                         <div class="form-group text-right">
-                            <button class="btn btn-primary mt-3" type="submit" name="Register_PetAdopter" name="submit">Sign Up</button>
+                            <button class="btn btn-outline-primary mt-3 " type="submit" name="Register_PetAdopter" name="submit">
+                                <i class="fas fa-user-plus"></i> Sign Up
+                            </button>
                         </div>
                     </form>
                 </div>
