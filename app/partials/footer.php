@@ -18,8 +18,8 @@
                     Ready To Terminate Current Session And Logout ?
                 </h4>
                 <br>
-                <button type="button" class="text-center btn btn-success" data-dismiss="modal"> No</button>
-                <a class="text-center btn btn-danger" href="logout"> Yes, Log Out</a>
+                <button type="button" class="text-center btn btn-outline-primary" data-dismiss="modal"><i class="fas fa-check"></i> No</button>
+                <a class="text-center btn btn-outline-danger" href="logout"><i class="fas fa-power-off"></i> Yes, Log Out</a>
             </div>
         </div>
     </div>
