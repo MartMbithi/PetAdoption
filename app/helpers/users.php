@@ -167,23 +167,23 @@ if (isset($_POST['Update_Administrator_Password'])) {
         $err = "Passwords Does Not Match";
     } else {
         /* Check If Old Password Match Too */
-        /* Avoid Duplications */
-        $sql = "SELECT * FROM  login   WHERE login_id ='{$login_id}'";
+        $sql = "SELECT * FROM  login   WHERE login_id = '{$login_id}'";
         $res = mysqli_query($mysqli, $sql);
         if (mysqli_num_rows($res) > 0) {
             $row = mysqli_fetch_assoc($res);
             if ($row['login_password'] != $old_password) {
                 $err = "Incorrect Old Password";
-            }
-        } else {
-            /* Persist Password Update */
-            $sql = "UPDATE login SET login_password = '{$new_password}' WHERE login_id = '{$login_id}'";
-
-            /* Prepare */
-            if (mysqli_query($mysqli, $sql)) {
-                $success = "Passwords Updated";
             } else {
-                $err = "Failed!, Please Try Again";
+
+                /* Persist Password Update */
+                $sql = "UPDATE login SET login_password = '{$new_password}' WHERE login_id = '{$login_id}'";
+
+                /* Prepare */
+                if (mysqli_query($mysqli, $sql)) {
+                    $success = "Passwords Updated";
+                } else {
+                    $err = "Failed!, Please Try Again";
+                }
             }
         }
     }
