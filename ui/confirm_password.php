@@ -77,7 +77,7 @@ require_once('../app/partials/head.php');
             <h2 href="" class="text-light"><b>Pet Adoption System</b></h2>
         </div>
         <!-- /.login-logo -->
-        <div class="card border border-success">
+        <div class="card border border-primary">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Enter Your New Password And Confirm It</p>
 
@@ -86,7 +86,7 @@ require_once('../app/partials/head.php');
                         <input type="password" class="form-control" required name="new_password" placeholder="New Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                                <span class="fas fa-lock text-primary"></span>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@ require_once('../app/partials/head.php');
                         <input type="password" class="form-control" required name="confirm_password" placeholder="Confirm Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                                <span class="fas fa-lock text-primary"></span>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,9 @@ require_once('../app/partials/head.php');
                         </div>
                         <!-- /.col -->
                         <div class="col-6">
-                            <button type="submit" name="Confirm_Password" class="btn btn-primary btn-block">Reset</button>
+                            <button type="submit" name="Confirm_Password" class="btn btn-outline-primary btn-block">
+                                <i class="fas fa-lock-alt"></i> Reset
+                            </button>
                         </div>
                         <!-- /.col -->
                     </div>

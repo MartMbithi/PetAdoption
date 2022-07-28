@@ -80,7 +80,7 @@ require_once('../app/partials/head.php');
         $user = mysqli_real_escape_string($mysqli, $_GET['user']);
         if ($user == 'PetAdopter') {
         ?>
-            <div class="card border border-success">
+            <div class="card border border-primary">
                 <div class="card-body login-card-body">
                     <p class="login-box-msg">Sign Up As Pet Adopter</p>
                     <form method="POST">
@@ -169,7 +169,7 @@ require_once('../app/partials/head.php');
             </div>
         <?php
         } else { ?>
-            <div class="card border border-success">
+            <div class="card border border-primary">
                 <div class="card-body login-card-body">
                     <p class="login-box-msg">Sign Up As Pet Owner</p>
                     <form method="POST">

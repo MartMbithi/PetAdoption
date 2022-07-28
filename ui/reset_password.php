@@ -146,7 +146,7 @@ require_once('../app/partials/head.php');
             <h2 href="" class="text-light"><b>Pet Adoption System</b></h2>
         </div>
         <!-- /.login-logo -->
-        <div class="card border border-success">
+        <div class="card border border-primary">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Enter Your Email To Reset Password</p>
 
@@ -155,7 +155,7 @@ require_once('../app/partials/head.php');
                         <input type="email" class="form-control" required name="login_email" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fas fa-envelope text-primary"></span>
                             </div>
                         </div>
                     </div>
@@ -165,7 +165,9 @@ require_once('../app/partials/head.php');
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" name="Reset_Password" class="btn btn-primary btn-block">Reset</button>
+                            <button type="submit" name="Reset_Password" class="btn btn-outline-primary btn-block">
+                                <i class="fas fa-lock-alt"></i> Reset
+                            </button>
                         </div>
                         <!-- /.col -->
                     </div>
