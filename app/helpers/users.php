@@ -138,3 +138,53 @@ if (isset($_POST['Delete_Administrator'])) {
         $err = "Failed!, Please Try Again";
     }
 }
+
+/* Update Admin Profile Details */
+if (isset($_POST['Update_Administrator_Profile'])) {
+    $login_id = mysqli_real_escape_string($mysqli, $_POST['login_id']);
+    $login_email = mysqli_real_escape_string($mysqli, $_POST['login_email']);
+
+    /* Persist */
+    $sql = "UPDATE login SET login_email = '{$login_email}' WHERE login_id = '{$login_id}'";
+
+    /* Prepare */
+    if (mysqli_query($mysqli, $sql)) {
+        $success = "Login Email Updated";
+    } else {
+        $err = "Failed!, Please Try Again";
+    }
+}
+
+/* Update Admin Profile Details - Password */
+if (isset($_POST['Update_Administrator_Password'])) {
+    $login_id = mysqli_real_escape_string($mysqli, $_POST['login_id']);
+    $old_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['old_password'])));
+    $new_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['new_password'])));
+    $confirm_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['confirm_password'])));
+
+    /* Check If Passwords Match */
+    if ($new_password != $confirm_password) {
+        $err = "Passwords Does Not Match";
+    } else {
+        /* Check If Old Password Match Too */
+        /* Avoid Duplications */
+        $sql = "SELECT * FROM  login   WHERE login_id ='{$login_id}'";
+        $res = mysqli_query($mysqli, $sql);
+        if (mysqli_num_rows($res) > 0) {
+            $row = mysqli_fetch_assoc($res);
+            if ($row['login_password'] != $old_password) {
+                $err = "Incorrect Old Password";
+            }
+        } else {
+            /* Persist Password Update */
+            $sql = "UPDATE login SET login_password = '{$new_password}' WHERE login_id = '{$login_id}'";
+
+            /* Prepare */
+            if (mysqli_query($mysqli, $sql)) {
+                $success = "Passwords Updated";
+            } else {
+                $err = "Failed!, Please Try Again";
+            }
+        }
+    }
+}

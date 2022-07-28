@@ -68,6 +68,7 @@ session_start();
 require_once('../app/settings/config.php');
 require_once('../app/settings/checklogin.php');
 check_login();
+require_once('../app/helpers/users.php');
 require_once('../app/partials/head.php');
 ?>
 
@@ -123,7 +124,6 @@ require_once('../app/partials/head.php');
                                     <!-- /.card-body -->
                                 </div>
                                 <!-- /.card -->
-
                             </div>
                             <!-- /.col -->
                             <div class="col-md-9">
@@ -207,7 +207,6 @@ require_once('../app/partials/head.php');
                                                 </form>
                                             </div>
                                         </div>
-                                        <!-- /.tab-content -->
                                     </div><!-- /.card-body -->
                                 </div>
                                 <!-- /.nav-tabs-custom -->
