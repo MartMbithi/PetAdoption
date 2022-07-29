@@ -255,7 +255,7 @@ if (isset($_POST['Update_Pet_Owner'])) {
 
 
 /* Delete Pet Owner */
-if (isset($_POST[''])) {
+if (isset($_POST['Delete_Pet_Owner'])) {
     $pet_owner_login_id = mysqli_real_escape_string($mysqli, $_POST['pet_owner_login_id']);
 
     /* Persist */
