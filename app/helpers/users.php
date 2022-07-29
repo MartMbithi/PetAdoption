@@ -328,7 +328,7 @@ if (isset($_POST['Update_Pet_Adopter'])) {
 
     /* Prepare */
     if (mysqli_query($mysqli, $sql)) {
-        $sql = "Pet Adopter Updated";
+        $success = "Pet Adopter Updated";
     } else {
         $err = "Failed!, Please Try Again";
     }
@@ -336,14 +336,14 @@ if (isset($_POST['Update_Pet_Adopter'])) {
 
 /* Delete Adopter */
 if (isset($_POST['Delete_Pet_Adopter'])) {
-    $login_id = mysqli_real_escape_string($mysqli, $_POST['pet_owner_login_id']);
+    $login_id = mysqli_real_escape_string($mysqli, $_POST['adopter_login_id']);
 
     /* Persist */
     $sql = "DELETE FROM login WHERE login_id = '{$login_id}'";
 
     /* Prepare */
     if (mysqli_query($mysqli, $sql)) {
-        $sql = "Pet Adopter Deleted";
+        $success = "Pet Adopter Deleted";
     } else {
         $err = "Failed!, Please Try Again";
     }

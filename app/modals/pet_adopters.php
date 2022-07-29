@@ -84,7 +84,7 @@
                     </h4>
                     <br>
                     <!-- Hide This -->
-                    <input type="hidden" name="pet_owner_login_id" value="<?php echo $adopters->pet_owner_login_id; ?>">
+                    <input type="hidden" name="adopter_login_id" value="<?php echo $adopters->adopter_login_id; ?>">
                     <button type="button" class="text-center btn btn-outline-primary" data-dismiss="modal"><i class="fas fa-check"></i> No</button>
                     <button type="submit" class="text-center btn btn-outline-danger" name="Delete_Pet_Adopter"><i class="fas fa-trash"></i> Yes Delete</button>
                 </div>
