@@ -1,4 +1,4 @@
-<!-- Manage Farmer Modals -->
+<!-- Manage Modals -->
 <div class="modal fade" id="update_<?php echo $admins->login_id; ?>">
     <div class="modal-dialog modal-dialog-centered  modal-lg">
         <div class="modal-content">
