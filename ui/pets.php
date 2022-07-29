@@ -123,13 +123,24 @@ require_once('../app/partials/head.php');
                         <div class="modal-body">
                             <form method="POST">
                                 <div class="form-row">
-                                    <div class="form-group col-12">
+                                    <div class="form-group col-8">
                                         <label>Name</label>
                                         <div class="input-group mb-3">
                                             <input class="form-control" required type="text" name="pet_name">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="text-primary fas fa-paw"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-4">
+                                        <label>Age</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" required type="text" name="pet_age">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-calendar"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -148,7 +159,10 @@ require_once('../app/partials/head.php');
                                     <div class="form-group col-6">
                                         <label>Health Status</label>
                                         <div class="input-group mb-3">
-                                            <input class="form-control" required type="text" name="pet_health_status">
+                                            <select class="form-control" required type="text" name="pet_health_status">
+                                                <option>Healthy</option>
+                                                <option>Ill</option>
+                                            </select>
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="text-primary fas fa-capsules"></span>
@@ -159,7 +173,18 @@ require_once('../app/partials/head.php');
                                     <div class="form-group col-12">
                                         <label>Pet Owner</label>
                                         <div class="input-group mb-3">
-                                            <input class="form-control" required type="text" name="pet_owner_address">
+                                            <select class="form-control" required type="text" name="pet_pet_owner">
+                                                <?php
+                                                $ret = "SELECT * FROM pet_owner";
+                                                $stmt = $mysqli->prepare($ret);
+                                                $stmt->execute(); //ok
+                                                $res = $stmt->get_result();
+                                                while ($owners = $res->fetch_object()) {
+                                                ?>
+                                                    <option value="<?php echo $owners->pet_owner_id; ?>"><?php echo $owners->pet_owner_full_name; ?></option>
+                                                <?php
+                                                } ?>
+                                            </select>
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="text-primary fas fa-user-tag"></span>
@@ -170,7 +195,7 @@ require_once('../app/partials/head.php');
 
                                 </div>
                                 <div class="form-group text-right">
-                                    <button class="btn btn-outline-primary mt-3" type="submit" name="Register_Pet_Owner" name="submit">
+                                    <button class="btn btn-outline-primary mt-3" type="submit" name="Add_Pet" name="submit">
                                         <i class="fas fa-cat"></i> Save
                                     </button>
                                 </div>
@@ -192,7 +217,7 @@ require_once('../app/partials/head.php');
                                             <table class="table table-bordered text-truncate" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Full Names</th>
+                                                        <th>Names</th>
                                                         <th>Contacts</th>
                                                         <th>Email</th>
                                                         <th>Address</th>

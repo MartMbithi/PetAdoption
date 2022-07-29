@@ -76,7 +76,7 @@ if (isset($_POST['Add_Pet'])) {
 
     /* Persist */
     $sql = "INSERT INTO pets (pet_name, pet_breed, pet_age, pet_health_status, pet_pet_owner)
-    VALUES('{$pet_pet_owner}', '{$pet_breed}', '{$pet_age}', '{$pet_health_status}', '{$pet_pet_owner}')";
+    VALUES('{$pet_name}', '{$pet_breed}', '{$pet_age}', '{$pet_health_status}', '{$pet_pet_owner}')";
 
     /* Prepare */
     if (mysqli_query($mysqli, $sql)) {
