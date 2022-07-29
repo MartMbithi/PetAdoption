@@ -268,3 +268,15 @@ if (isset($_POST['Delete_Pet_Owner'])) {
         $err = "Failed!, Please Try Again";
     }
 }
+
+
+
+/* Add Adopter */
+if (isset($_POST[''])) {
+}
+/* Update Adopter */
+if (isset($_POST[''])) {
+}
+/* Delete Adopter */
+if (isset($_POST[''])) {
+}

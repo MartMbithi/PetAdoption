@@ -235,14 +235,14 @@ require_once('../app/partials/head.php');
                                                                 <?php echo $owners->pet_owner_contacts; ?>
                                                             </td>
                                                             <td><?php echo $owners->pet_owner_email; ?></td>
-                                                            <td><?php echo $owners->pet_owner_email; ?></td>
+                                                            <td><?php echo $owners->pet_owner_address; ?></td>
                                                             <td>
                                                                 <a data-toggle="modal" href="#update_<?php echo $owners->pet_owner_id; ?>" class="badge  badge-pill badge-warning"><em class="fas fa-user-edit"></em> Edit</a>
                                                                 <a data-toggle="modal" href="#delete_<?php echo $owners->pet_owner_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php
-                                                        /* Manage Admin Modals */
+                                                        /* Manage  Modals */
                                                         include('../app/modals/pet_owners.php');
                                                     } ?>
                                                 </tbody>

@@ -1,6 +1,6 @@
 <?php
 /*
- *   Crafted On Tue Jul 26 2022
+ *   Crafted On Fri Jul 29 2022
  *
  * 
  *   https://bit.ly/MartMbithi
@@ -64,6 +64,7 @@
  *   TORT OR ANY OTHER THEORY OF LIABILITY, EXCEED THE LICENSE FEE PAID BY YOU, IF ANY.
  *
  */
+
 session_start();
 require_once('../app/settings/config.php');
 require_once('../app/settings/codeGen.php');
@@ -89,12 +90,12 @@ require_once('../app/partials/head.php');
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Administrators</h1>
+                            <h1 class="m-0 text-dark">Pet Adopters</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Administrators</li>
+                                <li class="breadcrumb-item active">Pet Adopters</li>
                             </ol>
                         </div><!-- /.col -->
                         <hr>
@@ -103,7 +104,7 @@ require_once('../app/partials/head.php');
                 <div class="card-header p-2">
                     <h3 class="text-right">
                         <button type="button" data-toggle="modal" data-target="#add_modal" class="btn btn-outline-primary">
-                            <i class="fas fa-user-plus"></i> Register New Administrator
+                            <i class="fas fa-user-plus"></i> Register New Pet Adopters
                         </button>
                     </h3>
                 </div><!-- /.card-header -->
@@ -114,55 +115,13 @@ require_once('../app/partials/head.php');
                 <div class="modal-dialog modal-dialog-centered  modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Register New Administrator - Fill All Required Fields </h4>
+                            <h4 class="modal-title">Register New Pet Adopters - Fill All Required Fields </h4>
                             <button type="button" class="close" data-dismiss="modal">
                                 <span>&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" enctype="multipart/form-data">
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label>Login Email</label>
-                                        <div class="input-group mb-3">
-                                            <input type="email" name="login_email" required class="form-control">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="text-primary fas fa-envelope"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>New Password</label>
-                                        <div class="input-group mb-3">
-                                            <input type="password" name="new_password" required class="form-control">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="text-primary fas fa-lock"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                   <label>Confirm Password</label>
-                                        <div class="input-group mb-3">
-                                            <input type="password" name="confirm_password" required class="form-control">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="text-primary fas fa-lock"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="text-right">
-                                    <button name="Add_Administrator" class="btn btn-outline-primary" type="submit">
-                                        <i class="fas fa-save"></i> Save
-                                    </button>
-                                </div>
-                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -180,35 +139,34 @@ require_once('../app/partials/head.php');
                                             <table class="table table-bordered text-truncate" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                     <tr>
+                                                        <th>Full Names</th>
+                                                        <th>Contacts</th>
                                                         <th>Email</th>
-                                                        <th>Access Level</th>
+                                                        <th>Address</th>
                                                         <th>Manage</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    $ret = "SELECT * FROM login 
-                                                    WHERE login_rank = 'Administrator'";
+                                                    $ret = "SELECT * FROM adopter";
                                                     $stmt = $mysqli->prepare($ret);
                                                     $stmt->execute(); //ok
                                                     $res = $stmt->get_result();
-                                                    while ($admins = $res->fetch_object()) {
+                                                    while ($adopters = $res->fetch_object()) {
                                                     ?>
                                                         <tr>
+                                                            <td><?php echo $adopters->adopter_full_name; ?></td>
+                                                            <td><?php echo $adopters->adoper_contacts; ?></td>
+                                                            <td><?php echo $adopters->adopter_email; ?></td>
+                                                            <td><?php echo $adopters->adopter_location; ?></td>
                                                             <td>
-                                                                <?php echo $admins->login_email; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $admins->login_rank; ?>
-                                                            </td>
-                                                            <td>
-                                                                <a data-toggle="modal" href="#update_<?php echo $admins->login_id; ?>" class="badge  badge-pill badge-warning"><em class="fas fa-user-edit"></em> Edit</a>
-                                                                <a data-toggle="modal" href="#delete_<?php echo $admins->login_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
+                                                                <a data-toggle="modal" href="#update_<?php echo $adopters->adopter_id; ?>" class="badge  badge-pill badge-warning"><em class="fas fa-user-edit"></em> Edit</a>
+                                                                <a data-toggle="modal" href="#delete_<?php echo $adopters->adopter_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php
-                                                        /* Manage Admin Modals */
-                                                        include('../app/modals/administrators.php');
+                                                        /* Manage Modals */
+                                                        include('../app/modals/pet_adopters.php');
                                                     } ?>
                                                 </tbody>
                                             </table>
