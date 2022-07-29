@@ -121,7 +121,81 @@ require_once('../app/partials/head.php');
                             </button>
                         </div>
                         <div class="modal-body">
-
+                            <form method="POST">
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label>Full Names</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" required type="text" name="adopter_full_name">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-user-tag"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label>Contacts</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" required type="text" name="adoper_contacts">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-phone"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label>Email Address</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" required type="text" name="adopter_email">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-envelope"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Address</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" required type="text" name="adopter_location">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-map-marker-alt"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label>Login Password</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" required type="password" name="new_password">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-user-lock"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label>Confirm Password</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control" required type="password" name="confirm_password">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-user-lock"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-right">
+                                    <button class="btn btn-outline-primary mt-3 " type="submit" name="Register_Pet_Adopter" name="submit">
+                                        <i class="fas fa-save"></i> Save
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
