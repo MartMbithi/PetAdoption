@@ -231,5 +231,40 @@ if (isset($_POST['Register_Pet_Owner'])) {
         }
     }
 }
+
+
 /* Update Pet Owners */
+if (isset($_POST['Update_Pet_Owner'])) {
+    $pet_owner_full_name = mysqli_real_escape_string($mysqli, $_POST['pet_owner_full_name']);
+    $pet_owner_email  = mysqli_real_escape_string($mysqli, $_POST['pet_owner_email']);
+    $pet_owner_contacts = mysqli_real_escape_string($mysqli, $_POST['pet_owner_contacts']);
+    $pet_owner_address  = mysqli_real_escape_string($mysqli, $_POST['pet_owner_address']);
+    $pet_owner_id = mysqli_real_escape_string($mysqli, $_POST['pet_owner_id']);
+
+    /* Persist */
+    $sql = "UPDATE pet_owner SET pet_owner_full_name = '{$pet_owner_full_name}', pet_owner_email = '{$pet_owner_email}',
+    pet_owner_contacts = '{$pet_owner_contacts}', pet_owner_address = '{$pet_owner_address}' WHERE pet_owner_id = '{$pet_owner_id}'";
+
+    /* Prepare */
+    if (mysqli_query($mysqli, $sql)) {
+        $success = "Pet Owner Details Updated";
+    } else {
+        $err = "Failed!, Please Try Again";
+    }
+}
+
+
 /* Delete Pet Owner */
+if (isset($_POST[''])) {
+    $pet_owner_login_id = mysqli_real_escape_string($mysqli, $_POST['pet_owner_login_id']);
+
+    /* Persist */
+    $sql  = "DELETE FROM login WHERE login_id = '{$pet_owner_login_id}'";
+
+    /* Prepare */
+    if (mysqli_query($mysqli, $sql)) {
+        $success = "Pet Owner Details Deleted";
+    } else {
+        $err = "Failed!, Please Try Again";
+    }
+}
