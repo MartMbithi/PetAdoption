@@ -95,7 +95,7 @@ if (isset($_POST['Update_Pet'])) {
     $pet_health_status = mysqli_real_escape_string($mysqli, $_POST['pet_health_status']);
 
     /* Persist */
-    $sql = "UPDATE pets SET pet_name = '{$pet_name}', pet_breed = '{$pet_breed}', pet_age = '{$pet_age}'
+    $sql = "UPDATE pets SET pet_name = '{$pet_name}', pet_breed = '{$pet_breed}', pet_age = '{$pet_age}',
     pet_health_status = '{$pet_health_status}' WHERE pet_id = '{$pet_id}'";
 
     /* Prepare */
