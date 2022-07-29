@@ -217,38 +217,45 @@ require_once('../app/partials/head.php');
                                             <table class="table table-bordered text-truncate" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Names</th>
-                                                        <th>Contacts</th>
-                                                        <th>Email</th>
-                                                        <th>Address</th>
+                                                        <th>Name</th>
+                                                        <th>Breed</th>
+                                                        <th>Age</th>
+                                                        <th>Health Status</th>
+                                                        <th>Owner</th>
                                                         <th>Manage</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    $ret = "SELECT * FROM pet_owner";
+                                                    $ret = "SELECT * FROM pets p
+                                                    INNER JOIN pet_owner po ON p.pet_pet_owner = po.pet_owner_id";
                                                     $stmt = $mysqli->prepare($ret);
                                                     $stmt->execute(); //ok
                                                     $res = $stmt->get_result();
-                                                    while ($owners = $res->fetch_object()) {
+                                                    while ($pets = $res->fetch_object()) {
                                                     ?>
                                                         <tr>
                                                             <td>
-                                                                <?php echo $owners->pet_owner_full_name; ?>
+                                                                <?php echo $pets->pet_name; ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $owners->pet_owner_contacts; ?>
+                                                                <?php echo $pets->pet_breed; ?>
                                                             </td>
-                                                            <td><?php echo $owners->pet_owner_email; ?></td>
-                                                            <td><?php echo $owners->pet_owner_address; ?></td>
+                                                            <td><?php echo $pets->pet_age; ?></td>
+                                                            <td><?php echo $pets->pet_health_status; ?></td>
                                                             <td>
-                                                                <a data-toggle="modal" href="#update_<?php echo $owners->pet_owner_id; ?>" class="badge  badge-pill badge-warning"><em class="fas fa-user-edit"></em> Edit</a>
-                                                                <a data-toggle="modal" href="#delete_<?php echo $owners->pet_owner_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
+                                                                <?php echo $pets->pet_owner_full_name; ?><br>
+                                                                <b>Email: </b> <?php echo $pets->pet_owner_email; ?> <br>
+                                                                <b>Contacts: </b> <?php echo $pets->pet_owner_contacts; ?>
+                                                            </td>
+                                                            <td>
+                                                                <a data-toggle="modal" href="#update_<?php echo $pets->pet_id; ?>" class="badge  badge-pill badge-warning"><em class="fas fa-user-edit"></em> Edit</a>
+                                                                <a data-toggle="modal" href="#delete_<?php echo $pets->pet_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php
                                                         /* Manage  Modals */
-                                                        include('../app/modals/pet_owners.php');
+                                                        include('../app/modals/pets.php');
                                                     } ?>
                                                 </tbody>
                                             </table>
