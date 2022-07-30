@@ -188,38 +188,38 @@ require_once('../app/partials/head.php');
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <?php
-                                                        $ret = "SELECT * FROM pet_adoption pa
-                                                        INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
-                                                        INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
-                                                        INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id";
-                                                        $stmt = $mysqli->prepare($ret);
-                                                        $stmt->execute(); //ok
-                                                        $res = $stmt->get_result();
-                                                        while ($adoption = $res->fetch_object()) {
-                                                        ?>
+                                                    <?php
+                                                    $ret = "SELECT * FROM pet_adoption pa
+                                                    INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
+                                                    INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
+                                                    INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id";
+                                                    $stmt = $mysqli->prepare($ret);
+                                                    $stmt->execute(); //ok
+                                                    $res = $stmt->get_result();
+                                                    while ($adoption = $res->fetch_object()) {
+                                                    ?>
+                                                        <tr>
                                                             <td>
                                                                 <?php echo $adoption->pet_name; ?><br>
-                                                                Breed: <?php echo $adoption->pet_breed; ?><br>
-                                                                Age: <?php echo $adoption->pet_age; ?>
+                                                                <b>Breed: </b> <?php echo $adoption->pet_breed; ?><br>
+                                                                <b>Age: </b> <?php echo $adoption->pet_age; ?>
                                                             </td>
                                                             <td>
                                                                 <?php echo $adoption->pet_owner_full_name; ?><br>
-                                                                Email: <?php echo $adoption->pet_owner_email; ?><br>
-                                                                Contacts: <?php echo $adoption->pet_owner_contacts; ?>
+                                                                <b>Email: </b><?php echo $adoption->pet_owner_email; ?><br>
+                                                                <b>Contacts:</b> <?php echo $adoption->pet_owner_contacts; ?>
                                                             </td>
                                                             <td>
                                                                 <?php echo $adoption->adopter_full_name; ?><br>
-                                                                Email: <?php echo $adoption->adopter_email; ?><br>
-                                                                Contacts: <?php echo $adoption->adoper_contacts; ?>
+                                                                <b>Email: </b> <?php echo $adoption->adopter_email; ?><br>
+                                                                <b>Contacts: </b> <?php echo $adoption->adoper_contacts; ?>
                                                             </td>
                                                             <td>
                                                                 <?php echo date('d M Y', strtotime($adoption->pet_adoption_date_adopted)); ?>
                                                             </td>
-                                                        <?php
-                                                        } ?>
-                                                    </tr>
+                                                        </tr>
+                                                    <?php
+                                                    } ?>
                                                 </tbody>
                                             </table>
                                         </div>

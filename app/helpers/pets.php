@@ -137,7 +137,7 @@ if (isset($_POST['Adopt_Pet'])) {
             $pet_adoption_pet_id == $row['pet_adoption_pet_id'] ||
             $pet_adoption_adopter_id == $row['pet_adoption_adopter_id']
         ) {
-            $info  = 'Pet Already Adopted';
+            $info  = ' Pet Already Adopted';
         }
     } else {
 
