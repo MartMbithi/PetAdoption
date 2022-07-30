@@ -23,7 +23,7 @@
                                     $adopter_res = $adopter_stmt->get_result();
                                     while ($adopters = $adopter_res->fetch_object()) {
                                     ?>
-                                        <option><?php echo $adopters->adopter_full_name; ?></option>
+                                        <option value="<?php echo $adopters->adopter_id; ?>"><?php echo $adopters->adopter_full_name; ?></option>
                                     <?php
                                     } ?>
                                 </select>
@@ -32,6 +32,17 @@
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="text-primary fas fa-user-md"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-4">
+                            <label>Date Adopted</label>
+                            <div class="input-group mb-3">
+                                <input class="form-control" required type="date" name="pet_adoption_date_adopted">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="text-primary fas fa-calendar"></span>
                                     </div>
                                 </div>
                             </div>
