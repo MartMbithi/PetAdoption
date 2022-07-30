@@ -128,14 +128,28 @@ if (isset($_POST['Adopt_Pet'])) {
     $pet_adoption_adopter_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_adopter_id']);
     $pet_adoption_date_adopted = date('d M Y', strtotime(mysqli_real_escape_string($mysqli, $_POST['pet_adoption_date_adopted'])));
 
-    /* Persist */
-    $sql = "INSERT INTO pet_adoption (pet_adoption_pet_id, pet_adoption_adopter_id, pet_adoption_date_adopted)
-    VALUES('{$pet_adoption_pet_id}', '{$pet_adoption_adopter_id}', '{$pet_adoption_date_adopted}')";
-
-    /* Prepare */
-    if (mysqli_query($mysqli, $sql)) {
-        $success = "Pet Adopted, Proceed To Contacting The Owner";
+    /* Avoid Double Adoptions */
+    $sql = "SELECT * FROM  pet_adoption   WHERE pet_adoption_pet_id ='{$pet_adoption_pet_id}'  ";
+    $res = mysqli_query($mysqli, $sql);
+    if (mysqli_num_rows($res) > 0) {
+        $row = mysqli_fetch_assoc($res);
+        if (
+            $pet_adoption_pet_id == $row['pet_adoption_pet_id'] ||
+            $pet_adoption_adopter_id == $row['pet_adoption_adopter_id']
+        ) {
+            $info  = 'Pet Already Adopted';
+        }
     } else {
-        $err = "Failed!, Please Try Again";
+
+        /* Persist */
+        $sql = "INSERT INTO pet_adoption (pet_adoption_pet_id, pet_adoption_adopter_id, pet_adoption_date_adopted)
+        VALUES('{$pet_adoption_pet_id}', '{$pet_adoption_adopter_id}', '{$pet_adoption_date_adopted}')";
+
+        /* Prepare */
+        if (mysqli_query($mysqli, $sql)) {
+            $success = "Pet Adopted, Proceed To Contacting The Owner";
+        } else {
+            $err = "Failed!, Please Try Again";
+        }
     }
 }
