@@ -249,6 +249,7 @@ require_once('../app/partials/head.php');
                                                                 <b>Contacts: </b> <?php echo $pets->pet_owner_contacts; ?>
                                                             </td>
                                                             <td>
+                                                                <a data-toggle="modal" href="#adopt_<?php echo $pets->pet_id; ?>" class="badge  badge-pill badge-success"><em class="fas fa-dog"></em> Adopt</a>
                                                                 <a data-toggle="modal" href="#update_<?php echo $pets->pet_id; ?>" class="badge  badge-pill badge-warning"><em class="fas fa-user-edit"></em> Edit</a>
                                                                 <a data-toggle="modal" href="#delete_<?php echo $pets->pet_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
                                                             </td>
