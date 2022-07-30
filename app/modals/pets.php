@@ -59,7 +59,6 @@
     </div>
 </div>
 
-
 <!-- Modals -->
 <div class="modal fade" id="update_<?php echo $pets->pet_id; ?>">
     <div class="modal-dialog modal-dialog-centered  modal-lg">
@@ -137,6 +136,7 @@
         </div>
     </div>
 </div>
+
 <!-- Delete Modal -->
 <div class="modal fade" id="delete_<?php echo $pets->pet_id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
