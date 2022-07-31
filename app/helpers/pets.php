@@ -177,7 +177,7 @@ if (isset($_POST['Update_Pet_Adoption'])) {
 }
 
 /* Delete Pet Adoption */
-if (isset($_POST['Delete_Pet'])) {
+if (isset($_POST['Delete_Pet_Adoption'])) {
     $pet_adoption_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_id']);
 
     /* Persist */

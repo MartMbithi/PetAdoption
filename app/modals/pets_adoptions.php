@@ -77,7 +77,7 @@
                     <!-- Hide This -->
                     <input type="hidden" name="pet_adoption_id" value="<?php echo $adoption->pet_adoption_id; ?>">
                     <button type="button" class="text-center btn btn-outline-primary" data-dismiss="modal"><i class="fas fa-check"></i> No</button>
-                    <button type="submit" class="text-center btn btn-outline-danger" name="Delete_Pet"><i class="fas fa-trash"></i> Yes Delete</button>
+                    <button type="submit" class="text-center btn btn-outline-danger" name="Delete_Pet_Adoption"><i class="fas fa-trash"></i> Yes Delete</button>
                 </div>
             </form>
         </div>
