@@ -28,7 +28,6 @@
                                     } ?>
                                 </select>
                                 <input class="form-control" value="<?php echo $pets->pet_id; ?>" required type="hidden" name="pet_adoption_pet_id">
-                                <input class="form-control" value="<?php echo $pets->pet_id; ?>" required type="hidden" name="pet_adoption_pet_id">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="text-primary fas fa-user-md"></span>
@@ -64,7 +63,7 @@
     <div class="modal-dialog modal-dialog-centered  modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Update Pet Owner Account - Fill All Required Fields </h4>
+                <h4 class="modal-title">Update Pet Details - Fill All Required Fields </h4>
                 <button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
