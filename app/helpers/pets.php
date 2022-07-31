@@ -178,4 +178,15 @@ if (isset($_POST['Update_Pet_Adoption'])) {
 
 /* Delete Pet Adoption */
 if (isset($_POST['Delete_Pet'])) {
+    $pet_adoption_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_id']);
+
+    /* Persist */
+    $sql = "DELETE FROM pet_adoption WHERE pet_adoption_id = '{$pet_adoption_id}'";
+
+    /* Prepare */
+    if (mysqli_query($mysqli, $sql)) {
+        $success = "Pet Adoption Deleted";
+    } else {
+        $err = "Failed!, Please Try Again";
+    }
 }
