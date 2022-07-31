@@ -1,6 +1,6 @@
 <?php
 /*
- *   Crafted On Tue Jul 26 2022
+ *   Crafted On Fri Jul 29 2022
  *
  * 
  *   https://bit.ly/MartMbithi
@@ -64,12 +64,13 @@
  *   TORT OR ANY OTHER THEORY OF LIABILITY, EXCEED THE LICENSE FEE PAID BY YOU, IF ANY.
  *
  */
+
 session_start();
 require_once('../app/settings/config.php');
 require_once('../app/settings/codeGen.php');
 require_once('../app/settings/checklogin.php');
 check_login();
-require_once('../app/helpers/users.php');
+require_once('../app/helpers/pets.php');
 require_once('../app/partials/head.php');
 ?>
 
@@ -89,12 +90,12 @@ require_once('../app/partials/head.php');
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Administrators</h1>
+                            <h1 class="m-0 text-dark">Pets</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Administrators</li>
+                                <li class="breadcrumb-item active">Pets</li>
                             </ol>
                         </div><!-- /.col -->
                         <hr>
@@ -103,7 +104,7 @@ require_once('../app/partials/head.php');
                 <div class="card-header p-2">
                     <h3 class="text-right">
                         <button type="button" data-toggle="modal" data-target="#add_modal" class="btn btn-outline-primary">
-                            <i class="fas fa-user-plus"></i> Register New Administrator
+                            <i class="fas fa-cat"></i> Register New Pet
                         </button>
                     </h3>
                 </div><!-- /.card-header -->
@@ -114,52 +115,88 @@ require_once('../app/partials/head.php');
                 <div class="modal-dialog modal-dialog-centered  modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Register New Administrator - Fill All Required Fields </h4>
+                            <h4 class="modal-title">Register New Pet - Fill All Required Fields </h4>
                             <button type="button" class="close" data-dismiss="modal">
                                 <span>&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" enctype="multipart/form-data">
+                            <form method="POST">
                                 <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label>Login Email</label>
+                                    <div class="form-group col-8">
+                                        <label>Name</label>
                                         <div class="input-group mb-3">
-                                            <input type="email" name="login_email" required class="form-control">
+                                            <input class="form-control" required type="text" name="pet_name">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
-                                                    <span class="text-primary fas fa-envelope"></span>
+                                                    <span class="text-primary fas fa-paw"></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label>New Password</label>
+                                    <div class="form-group col-4">
+                                        <label>Age</label>
                                         <div class="input-group mb-3">
-                                            <input type="password" name="new_password" required class="form-control">
+                                            <input class="form-control" required type="text" name="pet_age">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
-                                                    <span class="text-primary fas fa-lock"></span>
+                                                    <span class="text-primary fas fa-calendar"></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Confirm Password</label>
+                                    <div class="form-group col-6">
+                                        <label>Breed</label>
                                         <div class="input-group mb-3">
-                                            <input type="password" name="confirm_password" required class="form-control">
+                                            <input class="form-control" required type="text" name="pet_breed">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
-                                                    <span class="text-primary fas fa-lock"></span>
+                                                    <span class="text-primary fas fa-venus-mars"></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group col-6">
+                                        <label>Health Status</label>
+                                        <div class="input-group mb-3">
+                                            <select class="form-control" required type="text" name="pet_health_status">
+                                                <option>Healthy</option>
+                                                <option>Ill</option>
+                                            </select>
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-capsules"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Pet Owner</label>
+                                        <div class="input-group mb-3">
+                                            <select class="form-control" required type="text" name="pet_pet_owner">
+                                                <?php
+                                                $ret = "SELECT * FROM pet_owner";
+                                                $stmt = $mysqli->prepare($ret);
+                                                $stmt->execute(); //ok
+                                                $res = $stmt->get_result();
+                                                while ($owners = $res->fetch_object()) {
+                                                ?>
+                                                    <option value="<?php echo $owners->pet_owner_id; ?>"><?php echo $owners->pet_owner_full_name; ?></option>
+                                                <?php
+                                                } ?>
+                                            </select>
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="text-primary fas fa-user-tag"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <br>
-                                <div class="text-right">
-                                    <button name="Add_Administrator" class="btn btn-outline-primary" type="submit">
-                                        <i class="fas fa-save"></i> Save
+                                <div class="form-group text-right">
+                                    <button class="btn btn-outline-primary mt-3" type="submit" name="Add_Pet" name="submit">
+                                        <i class="fas fa-cat"></i> Save
                                     </button>
                                 </div>
                             </form>
@@ -180,35 +217,44 @@ require_once('../app/partials/head.php');
                                             <table class="table table-bordered text-truncate" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Email</th>
-                                                        <th>Access Level</th>
-                                                        <th>Manage</th>
+                                                        <th>Pet Details</th>
+                                                        <th>Pet Owner Details</th>
+                                                        <th>Adopted By</th>
+                                                        <th>Date Adopted</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    $ret = "SELECT * FROM login 
-                                                    WHERE login_rank = 'Administrator'";
+                                                    $ret = "SELECT * FROM pet_adoption pa
+                                                    INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
+                                                    INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
+                                                    INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id";
                                                     $stmt = $mysqli->prepare($ret);
                                                     $stmt->execute(); //ok
                                                     $res = $stmt->get_result();
-                                                    while ($admins = $res->fetch_object()) {
+                                                    while ($adoption = $res->fetch_object()) {
                                                     ?>
                                                         <tr>
                                                             <td>
-                                                                <?php echo $admins->login_email; ?>
+                                                                <?php echo $adoption->pet_name; ?><br>
+                                                                <b>Breed: </b> <?php echo $adoption->pet_breed; ?><br>
+                                                                <b>Age: </b> <?php echo $adoption->pet_age; ?>
                                                             </td>
                                                             <td>
-                                                                <?php echo $admins->login_rank; ?>
+                                                                <?php echo $adoption->pet_owner_full_name; ?><br>
+                                                                <b>Email: </b><?php echo $adoption->pet_owner_email; ?><br>
+                                                                <b>Contacts:</b> <?php echo $adoption->pet_owner_contacts; ?>
                                                             </td>
                                                             <td>
-                                                                <a data-toggle="modal" href="#update_<?php echo $admins->login_id; ?>" class="badge  badge-pill badge-warning"><em class="fas fa-user-edit"></em> Edit</a>
-                                                                <a data-toggle="modal" href="#delete_<?php echo $admins->login_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
+                                                                <?php echo $adoption->adopter_full_name; ?><br>
+                                                                <b>Email: </b> <?php echo $adoption->adopter_email; ?><br>
+                                                                <b>Contacts: </b> <?php echo $adoption->adoper_contacts; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo date('d M Y', strtotime($adoption->pet_adoption_date_adopted)); ?>
                                                             </td>
                                                         </tr>
                                                     <?php
-                                                        /* Manage Admin Modals */
-                                                        include('../app/modals/administrators.php');
                                                     } ?>
                                                 </tbody>
                                             </table>
