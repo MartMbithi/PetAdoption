@@ -147,9 +147,35 @@ if (isset($_POST['Adopt_Pet'])) {
 
         /* Prepare */
         if (mysqli_query($mysqli, $sql)) {
-            $success = "Pet Adopted, Proceed To Contacting The Owner";
+            $_SESSION['success'] = "Pet Adopted, Proceed To Contacting The Owner";
+            header('Location: pet_adoptions');
+            exit;
         } else {
             $err = "Failed!, Please Try Again";
         }
     }
+}
+
+
+/* Update Pet Adoption */
+if (isset($_POST['Update_Pet_Adoption'])) {
+    $pet_adoption_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_id']);
+    $pet_adoption_adopter_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_adopter_id']);
+    $pet_adoption_date_adopted = date('d M Y', strtotime(mysqli_real_escape_string($mysqli, $_POST['pet_adoption_date_adopted'])));
+
+
+    /* Persit */
+    $sql = "UPDATE pet_adoption SET pet_adoption_adopter_id = '{$pet_adoption_adopter_id}', pet_adoption_date_adopted = '{$pet_adoption_date_adopted}'
+    WHERE pet_adoption_id = '{$pet_adoption_id}'";
+
+    /* Prepare */
+    if (mysqli_query($mysqli, $sql)) {
+        $success = "Pet Adoption Updated";
+    } else {
+        $err = "Failed!, Please Try Again";
+    }
+}
+
+/* Delete Pet Adoption */
+if (isset($_POST['Delete_Pet'])) {
 }
