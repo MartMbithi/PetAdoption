@@ -160,6 +160,9 @@ require_once('../app/partials/head.php');
 
                             ?>
                                 <div class="card card-primary card-outline">
+                                    <div class="card-header">
+                                        <h5 class="text-center">Pet Adoptions From <?php echo $from_date; ?> To <?php echo $to_date; ?></h5>
+                                    </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -170,7 +173,6 @@ require_once('../app/partials/head.php');
                                                             <th>Pet Owner Details</th>
                                                             <th>Adopted By</th>
                                                             <th>Date Adopted</th>
-                                                            <th>Manage</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -204,13 +206,9 @@ require_once('../app/partials/head.php');
                                                                 <td>
                                                                     <?php echo date('d M Y', strtotime($adoption->pet_adoption_date_adopted)); ?>
                                                                 </td>
-                                                                <td>
-                                                                    <a data-toggle="modal" href="#update_<?php echo $adoption->pet_adoption_id; ?>" class="badge  badge-pill badge-warning"><em class="fas fa-user-edit"></em> Edit</a>
-                                                                    <a data-toggle="modal" href="#delete_<?php echo $adoption->pet_adoption_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
-                                                                </td>
+
                                                             </tr>
                                                         <?php
-                                                            include('../app/modals/pets_adoptions.php');
                                                         } ?>
                                                     </tbody>
                                                 </table>
