@@ -141,9 +141,9 @@ require_once('../app/partials/head.php');
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group text-right">
-                                                    <button class="btn btn-outline-primary mt-3" type="submit" name="filter" name="submit">
-                                                        <i class="fas fa-funnel"></i> Filter
+                                                <div class="form-group text-center">
+                                                    <button class="btn btn-outline-primary  mt-3" type="submit" name="filter" name="submit">
+                                                        <i class="fas fa-filter"></i> Filter
                                                     </button>
                                                 </div>
                                             </form>
