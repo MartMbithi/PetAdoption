@@ -178,7 +178,8 @@ require_once('../app/partials/head.php');
                                                         $ret = "SELECT * FROM pet_adoption pa
                                                         INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
                                                         INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
-                                                        INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id";
+                                                        INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id
+                                                        WHERE pa.pet_adoption_date_adopted BETWEEN  '{$from_date}' AND '{$to_date}'  ";
                                                         $stmt = $mysqli->prepare($ret);
                                                         $stmt->execute(); //ok
                                                         $res = $stmt->get_result();
