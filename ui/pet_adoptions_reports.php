@@ -132,7 +132,7 @@ require_once('../app/partials/head.php');
                                                     <div class="form-group col-6">
                                                         <label>Adoption To Date</label>
                                                         <div class="input-group mb-3">
-                                                            <input class="form-control" required type="date" name="from_date">
+                                                            <input class="form-control" required type="date" name="to_date">
                                                             <div class="input-group-append">
                                                                 <div class="input-group-text">
                                                                     <span class="text-primary fas fa-calendar"></span>
@@ -155,6 +155,9 @@ require_once('../app/partials/head.php');
 
                             <?php
                             if (isset($_POST['filter'])) {
+                                $from_date = date('d M Y', strtotime(mysqli_real_escape_string($mysqli, $_POST['from_date'])));
+                                $to_date = date('d M Y', strtotime(mysqli_real_escape_string($mysqli, $_POST['to_date'])));
+
                             ?>
                                 <div class="card card-primary card-outline">
                                     <div class="card-body">
@@ -173,9 +176,9 @@ require_once('../app/partials/head.php');
                                                     <tbody>
                                                         <?php
                                                         $ret = "SELECT * FROM pet_adoption pa
-                                                    INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
-                                                    INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
-                                                    INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id";
+                                                        INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
+                                                        INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
+                                                        INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id";
                                                         $stmt = $mysqli->prepare($ret);
                                                         $stmt->execute(); //ok
                                                         $res = $stmt->get_result();
