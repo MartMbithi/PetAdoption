@@ -112,6 +112,46 @@ require_once('../app/partials/head.php');
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
+                            <div class="card card-primary card-outline">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form method="POST">
+                                                <div class="form-row">
+                                                    <div class="form-group col-6">
+                                                        <label>Adoption From Date</label>
+                                                        <div class="input-group mb-3">
+                                                            <input class="form-control" required type="date" name="from_date">
+                                                            <div class="input-group-append">
+                                                                <div class="input-group-text">
+                                                                    <span class="text-primary fas fa-calendar"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-6">
+                                                        <label>Adoption To Date</label>
+                                                        <div class="input-group mb-3">
+                                                            <input class="form-control" required type="date" name="from_date">
+                                                            <div class="input-group-append">
+                                                                <div class="input-group-text">
+                                                                    <span class="text-primary fas fa-calendar"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group text-right">
+                                                    <button class="btn btn-outline-primary mt-3" type="submit" name="filter" name="submit">
+                                                        <i class="fas fa-funnel"></i> Filter
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                            </div>
 
                             <?php
                             if (isset($_POST['filter'])) {
@@ -174,7 +214,6 @@ require_once('../app/partials/head.php');
                                         </div>
                                         <!-- /.row -->
                                     </div>
-
                                 </div>
                             <?php
                             } ?>
