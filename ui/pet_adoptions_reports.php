@@ -124,7 +124,6 @@ require_once('../app/partials/head.php');
                             </button>
                         </form>
                     </div>
-                    <hr>
                     <div class="row">
                         <div class="col-12">
                             <?php
@@ -137,6 +136,7 @@ require_once('../app/partials/head.php');
                                 $to_date = date('d M Y', strtotime($dates[1]));
 
                             ?>
+                                <hr>
                                 <div class="card card-primary card-outline">
                                     <div class="card-header">
                                         <h5 class="text-center">Pet Adoptions From <?php echo $from_date; ?> To <?php echo $to_date; ?> </h5>
