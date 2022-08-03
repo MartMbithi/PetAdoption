@@ -138,10 +138,15 @@ require_once('../app/partials/head.php');
                                 /* Sanitize For SQL Procesing */
                                 $sql_date_from = $dates['0'];
                                 $sql_date_to = $dates['1'];
-
-
                             ?>
+
                                 <hr>
+                                <div class="text-right">
+                                    <a href="reports_export?type=excel&report=adoptions&start=<?php echo $sql_date_from; ?>&end=<?php echo $sql_date_to; ?>" class="btn btn-outline-primary">
+                                        <i class="fas fa-csv"></i> Export To Excel
+                                    </a>
+                                </div>
+                                <br>
                                 <div class="card card-primary card-outline">
                                     <div class="card-header">
                                         <h5 class="text-center">Pet Adoptions From <?php echo $from_date; ?> To <?php echo $to_date; ?> </h5>
