@@ -90,7 +90,7 @@ require_once('../app/partials/head.php');
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Pets Adoptions</h1>
+                            <h1 class="m-0 text-dark">Pets Adoptions Reports</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -110,107 +110,39 @@ require_once('../app/partials/head.php');
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <form method="POST">
-                                        <div class="form-row">
-                                            <div class="form-group col-6">
-                                                <label>Adoption From Date</label>
-                                                <div class="input-group mb-3">
-                                                    <input class="form-control" required type="date" name="from_date">
-                                                    <div class="input-group-append">
-                                                        <div class="input-group-text">
-                                                            <span class="text-primary fas fa-calendar"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-6">
-                                                <label>Adoption To Date</label>
-                                                <div class="input-group mb-3">
-                                                    <input class="form-control" required type="date" name="to_date">
-                                                    <div class="input-group-append">
-                                                        <div class="input-group-text">
-                                                            <span class="text-primary fas fa-calendar"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group text-center">
-                                            <button class="btn btn-outline-primary  mt-3" type="submit" name="filter" name="submit">
-                                                <i class="fas fa-filter"></i> Filter
-                                            </button>
-                                        </div>
-                                    </form>
+                    <div class="d-flex justify-content-center">
+                        <form class="form-inline" method="POST">
+                            <div class="input-group mx-sm-3 mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="far fa-calendar-alt text-primary"></i>
+                                    </span>
                                 </div>
+                                <input type="text" name="date_range" class="form-control float-right" id="range">
                             </div>
-
+                            <button type="submit" name="filter" class="btn btn-primary mb-2">
+                                <i class="fas fa-filter"></i> Filter
+                            </button>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
                             <?php
                             if (isset($_POST['filter'])) {
-                                $from_date = date('d M Y', strtotime(mysqli_real_escape_string($mysqli, $_POST['from_date'])));
-                                $to_date = date('d M Y', strtotime(mysqli_real_escape_string($mysqli, $_POST['to_date'])));
+
+                                $date_range = mysqli_real_escape_string($mysqli, $_POST['date_range']);
+                                /* Split This */
+                                $dates = explode(' - ', $date_range);
+                                $start_date = $dates[0];
+                                $end_date = $dates[1];
 
                             ?>
+
                                 <div class="card card-primary card-outline">
                                     <div class="card-header">
-                                        <h5 class="text-center">Pet Adoptions From <?php echo $from_date; ?> To <?php echo $to_date; ?></h5>
+                                        <h5 class="text-center">Pet Adoptions Between <?php echo $start_date; ?> And <?php echo $end_date; ?> </h5>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <table class="table table-bordered text-truncate" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Pet Details</th>
-                                                            <th>Pet Owner Details</th>
-                                                            <th>Adopted By</th>
-                                                            <th>Date Adopted</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php
-                                                        $ret = "SELECT * FROM pet_adoption pa
-                                                        INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
-                                                        INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
-                                                        INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id
-                                                        WHERE pa.pet_adoption_date_adopted BETWEEN  '{$from_date}' AND '{$to_date}'  ";
-                                                        $stmt = $mysqli->prepare($ret);
-                                                        $stmt->execute(); //ok
-                                                        $res = $stmt->get_result();
-                                                        while ($adoption = $res->fetch_object()) {
-                                                        ?>
-                                                            <tr>
-                                                                <td>
-                                                                    <?php echo $adoption->pet_name; ?><br>
-                                                                    <b>Breed: </b> <?php echo $adoption->pet_breed; ?><br>
-                                                                    <b>Age: </b> <?php echo $adoption->pet_age; ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $adoption->pet_owner_full_name; ?><br>
-                                                                    <b>Email: </b><?php echo $adoption->pet_owner_email; ?><br>
-                                                                    <b>Contacts:</b> <?php echo $adoption->pet_owner_contacts; ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $adoption->adopter_full_name; ?><br>
-                                                                    <b>Email: </b> <?php echo $adoption->adopter_email; ?><br>
-                                                                    <b>Contacts: </b> <?php echo $adoption->adoper_contacts; ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo date('d M Y', strtotime($adoption->pet_adoption_date_adopted)); ?>
-                                                                </td>
 
-                                                            </tr>
-                                                        <?php
-                                                        } ?>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <!-- /.row -->
-                                    </div>
                                 </div>
                             <?php
                             } ?>

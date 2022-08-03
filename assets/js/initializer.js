@@ -94,3 +94,6 @@ jQuery(function ($) {
 
 /* Select 2 */
 $('.select2').select2()
+
+/* Date Range Picker */
+$('#range').daterangepicker()

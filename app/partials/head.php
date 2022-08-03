@@ -26,6 +26,8 @@
     <!-- Select2 -->
     <link rel="stylesheet" href="../assets/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="../assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="../assets/plugins/daterangepicker/daterangepicker.css">
     <!-- Data Tables CDN-->
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css" />
