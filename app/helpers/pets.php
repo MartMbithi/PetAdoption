@@ -185,7 +185,7 @@ if (isset($_POST['Delete_Pet_Adoption'])) {
 
     /* Persist */
     $sql = "DELETE FROM pet_adoption WHERE pet_adoption_id = '{$pet_adoption_id}'";
-    $update = "UPDATE pets SET pet_adoption_status = 'Pending'";
+    $update = "UPDATE pets SET pet_adoption_status = 'Pending' WHERE pet_id = '{$pet_id}'";
 
     /* Prepare */
     if (mysqli_query($mysqli, $sql) && mysqli_query($mysqli, $update)) {

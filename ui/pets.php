@@ -236,7 +236,13 @@ require_once('../app/partials/head.php');
                                                     ?>
                                                         <tr>
                                                             <td>
-                                                                <?php echo $pets->pet_name; ?>
+                                                                <?php echo $pets->pet_name;
+                                                                if ($pets->pet_adoption_status == 'Adopted') {
+                                                                ?>
+                                                                    <br>
+                                                                    <span class="badge bg-success"><i class="fas fa-check"></i> Adopted</span>
+                                                                <?php
+                                                                } ?>
                                                             </td>
                                                             <td>
                                                                 <?php echo $pets->pet_breed; ?>
