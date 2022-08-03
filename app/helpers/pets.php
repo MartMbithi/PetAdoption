@@ -126,7 +126,7 @@ if (isset($_POST['Delete_Pet'])) {
 if (isset($_POST['Adopt_Pet'])) {
     $pet_adoption_pet_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_pet_id']);
     $pet_adoption_adopter_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_adopter_id']);
-    $pet_adoption_date_adopted = date('d M Y', strtotime(mysqli_real_escape_string($mysqli, $_POST['pet_adoption_date_adopted'])));
+    $pet_adoption_date_adopted = (mysqli_real_escape_string($mysqli, $_POST['pet_adoption_date_adopted']));
 
     /* Avoid Double Adoptions */
     $sql = "SELECT * FROM  pet_adoption   WHERE pet_adoption_pet_id ='{$pet_adoption_pet_id}'  ";
@@ -145,8 +145,10 @@ if (isset($_POST['Adopt_Pet'])) {
         $sql = "INSERT INTO pet_adoption (pet_adoption_pet_id, pet_adoption_adopter_id, pet_adoption_date_adopted)
         VALUES('{$pet_adoption_pet_id}', '{$pet_adoption_adopter_id}', '{$pet_adoption_date_adopted}')";
 
+        $update = "UPDATE pets SET pet_adoption_status = 'Adopted' WHERE pet_id = '{$pet_adoption_pet_id}'";
+
         /* Prepare */
-        if (mysqli_query($mysqli, $sql)) {
+        if (mysqli_query($mysqli, $sql) && mysqli_query($mysqli, $update)) {
             $_SESSION['success'] = "Pet Adopted, Proceed To Contacting The Owner";
             header('Location: pet_adoptions');
             exit;
@@ -161,7 +163,7 @@ if (isset($_POST['Adopt_Pet'])) {
 if (isset($_POST['Update_Pet_Adoption'])) {
     $pet_adoption_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_id']);
     $pet_adoption_adopter_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_adopter_id']);
-    $pet_adoption_date_adopted = date('d M Y', strtotime(mysqli_real_escape_string($mysqli, $_POST['pet_adoption_date_adopted'])));
+    $pet_adoption_date_adopted = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_date_adopted']);
 
 
     /* Persit */
@@ -179,12 +181,14 @@ if (isset($_POST['Update_Pet_Adoption'])) {
 /* Delete Pet Adoption */
 if (isset($_POST['Delete_Pet_Adoption'])) {
     $pet_adoption_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_id']);
+    $pet_id = mysqli_real_escape_string($mysqli, $_POST['pet_id']);
 
     /* Persist */
     $sql = "DELETE FROM pet_adoption WHERE pet_adoption_id = '{$pet_adoption_id}'";
+    $update = "UPDATE pets SET pet_adoption_status = 'Pending'";
 
     /* Prepare */
-    if (mysqli_query($mysqli, $sql)) {
+    if (mysqli_query($mysqli, $sql) && mysqli_query($mysqli, $update)) {
         $success = "Pet Adoption Deleted";
     } else {
         $err = "Failed!, Please Try Again";
