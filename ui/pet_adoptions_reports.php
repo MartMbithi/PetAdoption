@@ -132,10 +132,14 @@ require_once('../app/partials/head.php');
                                 /* Split This */
                                 $dates = explode(' - ', $date_range);
 
-                                $from_date = date('d/m/y', strtotime($dates[0]));
-                                $to_date = date('d/m/y', strtotime($dates[1]));
+                                $from_date = date('d M Y', strtotime($dates[0]));
+                                $to_date = date('d M Y', strtotime($dates[1]));
 
-                                
+                                /* Sanitize For SQL Procesing */
+                                $sql_date_from = $dates['0'];
+                                $sql_date_to = $dates['1'];
+
+
                             ?>
                                 <hr>
                                 <div class="card card-primary card-outline">
@@ -160,7 +164,7 @@ require_once('../app/partials/head.php');
                                                         INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
                                                         INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
                                                         INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id
-                                                        WHERE pa.pet_adoption_date_adopted  ";
+                                                        WHERE pa.pet_adoption_date_adopted BETWEEN {'$sql_date_from'} AND {'$sql_date_to'}";
                                                         $stmt = $mysqli->prepare($ret);
                                                         $stmt->execute(); //ok
                                                         $res = $stmt->get_result();
