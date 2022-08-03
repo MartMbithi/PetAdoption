@@ -126,7 +126,7 @@ if (isset($_POST['Delete_Pet'])) {
 if (isset($_POST['Adopt_Pet'])) {
     $pet_adoption_pet_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_pet_id']);
     $pet_adoption_adopter_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_adopter_id']);
-    $pet_adoption_date_adopted = (mysqli_real_escape_string($mysqli, $_POST['pet_adoption_date_adopted']));
+    $pet_adoption_date_adopted = date('m/d/Y', strtotime(mysqli_real_escape_string($mysqli, $_POST['pet_adoption_date_adopted'])));
 
     /* Avoid Double Adoptions */
     $sql = "SELECT * FROM  pet_adoption   WHERE pet_adoption_pet_id ='{$pet_adoption_pet_id}'  ";
@@ -163,7 +163,7 @@ if (isset($_POST['Adopt_Pet'])) {
 if (isset($_POST['Update_Pet_Adoption'])) {
     $pet_adoption_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_id']);
     $pet_adoption_adopter_id = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_adopter_id']);
-    $pet_adoption_date_adopted = mysqli_real_escape_string($mysqli, $_POST['pet_adoption_date_adopted']);
+    $pet_adoption_date_adopted = date('m/d/Y', strtotime(mysqli_real_escape_string($mysqli, $_POST['pet_adoption_date_adopted'])));
 
 
     /* Persit */
