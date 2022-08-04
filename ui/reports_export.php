@@ -70,11 +70,11 @@ require_once('../app/settings/codeGen.php');
 require_once('../app/settings/checklogin.php');
 check_login();
 require_once('../vendor/autoload.php');
-
 /* Global Variables */
-$dompdf = new Dompdf();
 
 use Dompdf\Dompdf;
+
+$dompdf = new Dompdf();
 
 $type = mysqli_real_escape_string($mysqli, $_GET['type']);
 $report = mysqli_real_escape_string($mysqli, $_GET['report']);
@@ -84,6 +84,9 @@ if ($report == 'adoptions') {
     $start = mysqli_real_escape_string($mysqli, $_GET['start']);
     $end = mysqli_real_escape_string($mysqli, $_GET['end']);
 
+    /* Stripped Dates */
+    $formal_start_date = date('d M Y', strtotime($start));
+    $formal_end_date  = date('d M Y', strtotime($end));
 
     /* Dump Reports To XLS File */
     if ($type == 'excel') {
@@ -132,81 +135,77 @@ if ($report == 'adoptions') {
         echo $excelData;
 
         exit;
-    } else {
-        $_SESSION['error'] = 'Specify Report Type';
-        header('Location: pet_adoptions_reports');
-        exit;
-    }
-
-    /* Dump To PDF */
-    if ($type == 'PDF') {
-        /* Load PDF Generator Via Helpers */
+    } else if ($type == 'PDF') {
+        /* Dump To PDF */
         $html = '
             <div class="list_header" align="center">
                 <h3>
                     Pet Adoption System
                 </h3>
                 <hr style="width:100%" , color=black>
-                <h5>Emergencies Report On ' . date('d M Y') . ' </h5>
+                <h5>Pet Adoptions From ' . $formal_start_date . ' To ' . $formal_end_date . '</h5>
             </div>
             <table border="1" cellspacing="0" width="98%" style="font-size:9pt">
                 <thead>
                     <tr>
                         <th style="width:10%">#</th>
                         <th style="width:100%">Pet Details</th>
-                        <th style="width:80%">Pet Owner Details</th>
-                        <th style="width:40%">Adopted By</th>
-                        <th style="width:40%">Date Adopted</th>
+                        <th style="width:100%">Pet Owner Details</th>
+                        <th style="width:100%">Adopted By</th>
+                        <th style="width:100%">Date Adopted</th>
                     </tr>
                 </thead>
                 <tbody>
                 ';
-                $ret = "SELECT * FROM pet_adoption pa
-                INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
-                INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
-                INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id
-                WHERE pa.pet_adoption_date_adopted BETWEEN '{$start}' AND '{$end}'";
-                $stmt = $mysqli->prepare($ret);
-                $stmt->execute(); //ok
-                $res = $stmt->get_result();
-                while ($adoption = $res->fetch_object()) {
-                $html .=
-                    '
+        $ret = "SELECT * FROM pet_adoption pa
+        INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
+        INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
+        INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id
+        WHERE pa.pet_adoption_date_adopted BETWEEN '{$start}' AND '{$end}'";
+        $stmt = $mysqli->prepare($ret);
+        $stmt->execute(); //ok
+        $res = $stmt->get_result();
+        while ($adoption = $res->fetch_object()) {
+            $html .=
+                '
                         <tr>
                             <td>' . $cnt . '</td>
                             <td>
-                                '.$adoption->pet_name.' <br>
+                                ' . $adoption->pet_name . ' <br>
                                 Breed :' . $adoption->pet_breed . ' <br>
                                 Age: ' . $adoption->pet_age . '
                             </td>
                             <td>
-                                '.$adoption->pet_owner_full_name.' <br>
+                                ' . $adoption->pet_owner_full_name . ' <br>
                                 Email :' . $adoption->pet_owner_email . ' <br>
                                 Contacts: ' . $adoption->pet_owner_contacts . '
                             </td>
                             <td>
-                                '.$adoption->adopter_full_name.' <br>
+                                ' . $adoption->adopter_full_name . ' <br>
                                 Email :' . $adoption->adopter_email . ' <br>
                                 Contacts: ' . $adoption->adoper_contacts . '
                             </td>
                             <td>' . date('d M Y', strtotime($adoption->pet_adoption_date_adopted)) . '</td>
                         </tr>
                     ';
-                $cnt = $cnt + 1;
-                }
-                $html .= '
+            $cnt = $cnt + 1;
+        }
+        $html .= '
                 </tbody>
             </table>
         ';
-        $dompdf = new Dompdf();
         $dompdf->load_html($html);
         $dompdf->set_paper('A4');
         $dompdf->set_option('isHtml5ParserEnabled', true);
         $dompdf->render();
-        $dompdf->stream('Pet Adoptions Between' . $start . ' And ' . $end, array("Attachment" => 1));
+        $dompdf->stream('Pet Adoptions Between ' . $formal_start_date . ' And ' . $formal_end_date, array("Attachment" => 1));
         $options = $dompdf->getOptions();
         $options->setDefaultFont('');
         $dompdf->setOptions($options);
+    } else {
+        $_SESSION['error'] = 'Specify Report Type';
+        header('Location: pet_adoptions_reports');
+        exit;
     }
 }
 
