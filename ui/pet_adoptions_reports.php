@@ -141,9 +141,13 @@ require_once('../app/partials/head.php');
                             ?>
 
                                 <hr>
+
                                 <div class="text-right">
+                                    <a href="reports_export?type=PDF&report=adoptions&start=<?php echo $sql_date_from; ?>&end=<?php echo $sql_date_to; ?>" class="btn btn-outline-primary">
+                                        <i class="fas fa-file-pdf"></i> Export To PDF
+                                    </a>
                                     <a href="reports_export?type=excel&report=adoptions&start=<?php echo $sql_date_from; ?>&end=<?php echo $sql_date_to; ?>" class="btn btn-outline-primary">
-                                        <i class="fas fa-csv"></i> Export To Excel
+                                        <i class="fas fa-file-spreadsheet"></i> Export To Excel
                                     </a>
                                 </div>
                                 <br>

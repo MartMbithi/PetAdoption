@@ -39,4 +39,8 @@ if (isset($_SESSION['success'])) {
     $success = $_SESSION['success'];
     unset($_SESSION['success']);
 }
+if (isset($_SESSION['error'])) {
+    $info = $_SESSION['error'];
+    unset($_SESSION['error']);
+}
 ?>

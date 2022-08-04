@@ -129,6 +129,15 @@ if ($report == 'adoptions') {
         echo $excelData;
 
         exit;
+    } else {
+        $_SESSION['error'] = 'Specify Report Type';
+        header('Location: pet_adoptions_reports');
+        exit;
+    }
+
+    /* Dump To PDF */
+    if ($type == 'PDF') {
+        /* Load PDF Generator Via Helpers */
     }
 }
 
