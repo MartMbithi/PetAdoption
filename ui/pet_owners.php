@@ -105,6 +105,12 @@ require_once('../app/partials/head.php');
                         <button type="button" data-toggle="modal" data-target="#add_modal" class="btn btn-outline-primary">
                             <i class="fas fa-user-plus"></i> Register New Pet Owner
                         </button>
+                        <a href="reports_export?type=PDF&report=owners" class="btn btn-outline-primary">
+                            <i class="fas fa-file-pdf"></i> Export To PDF
+                        </a>
+                        <a href="reports_export?type=excel&report=owners" class="btn btn-outline-primary">
+                            <i class="fas fa-file-spreadsheet"></i> Export To Excel
+                        </a>
                     </h3>
                 </div><!-- /.card-header -->
             </div>
