@@ -310,7 +310,7 @@ if ($report == 'admins') {
 
         /* Excel Column Name */
         $header = array("Administrators Reports");
-        $fields = array('Pet Details', 'Pet Owner Details', 'Adopted By', 'Date Adopted');
+        $fields = array('Email Address', 'Access Level');
 
 
         /* Implode Excel Data */
@@ -318,20 +318,17 @@ if ($report == 'admins') {
         $excelData = implode("\t", array_values($fields)) . "\n";
 
         /* Fetch All Records From The Database */
-        $query = $mysqli->query("SELECT * FROM pet_adoption pa
-        INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
-        INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
-        INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id
-        WHERE pa.pet_adoption_date_adopted BETWEEN '{$start}' AND '{$end}'");
+        $query = $mysqli->query("SELECT * FROM login 
+        WHERE login_rank = 'Administrator' ");
         if ($query->num_rows > 0) {
             /* Load All Fetched Rows */
             while ($row = $query->fetch_assoc()) {
-                $lineData = array($row['pet_name'], $row['pet_owner_full_name'], $row['adopter_full_name'], $row['pet_adoption_date_adopted']);
+                $lineData = array($row['login_email'], $row['login_rank']);
                 array_walk($lineData, 'filterData');
                 $excelData .= implode("\t", array_values($lineData)) . "\n";
             }
         } else {
-            $excelData .= 'No Pet Adoptions Records Available...' . "\n";
+            $excelData .= 'No Administrators Records Available...' . "\n";
         }
 
         /* Generate Header File Encordings For Download */
