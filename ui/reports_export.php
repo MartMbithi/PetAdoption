@@ -79,12 +79,12 @@ $dompdf = new Dompdf();
 $type = mysqli_real_escape_string($mysqli, $_GET['type']);
 $report = mysqli_real_escape_string($mysqli, $_GET['report']);
 
-/* Dates */
-$start = mysqli_real_escape_string($mysqli, $_GET['start']);
-$end = mysqli_real_escape_string($mysqli, $_GET['end']);
 
 /* 1. Pet Adoptions */
 if ($report == 'adoptions') {
+    /* Dates */
+    $start = mysqli_real_escape_string($mysqli, $_GET['start']);
+    $end = mysqli_real_escape_string($mysqli, $_GET['end']);
 
     /* Stripped Dates */
     $formal_start_date = date('d M Y', strtotime($start));
@@ -286,8 +286,62 @@ if ($report == 'adoptions') {
     }
 }
 
- /* 2. Pets */
+/* 2. Pets */
+if ($report == '') {
+}
 
- /* 3. Pet Owners */
+/* 3. Pet Owners */
 
- /* 4. Pet Adopters */
+/* 4. Pet Adopters */
+
+/* 5. Admin Reports */
+if ($report == 'admins') {
+    /* Dump Reports To XLS File */
+    if ($type == 'excel') {
+        function filterData(&$str)
+        {
+            $str = preg_replace("/\t/", "\\t", $str);
+            $str = preg_replace("/\r?\n/", "\\n", $str);
+            if (strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"';
+        }
+
+        /* Excel File Name */
+        $fileName = "Administrators Reports.xls";
+
+        /* Excel Column Name */
+        $header = array("Administrators Reports");
+        $fields = array('Pet Details', 'Pet Owner Details', 'Adopted By', 'Date Adopted');
+
+
+        /* Implode Excel Data */
+        $excelDataHeader = implode("\t\t\t", array_values($header)) . "\n\n";
+        $excelData = implode("\t", array_values($fields)) . "\n";
+
+        /* Fetch All Records From The Database */
+        $query = $mysqli->query("SELECT * FROM pet_adoption pa
+        INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
+        INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
+        INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id
+        WHERE pa.pet_adoption_date_adopted BETWEEN '{$start}' AND '{$end}'");
+        if ($query->num_rows > 0) {
+            /* Load All Fetched Rows */
+            while ($row = $query->fetch_assoc()) {
+                $lineData = array($row['pet_name'], $row['pet_owner_full_name'], $row['adopter_full_name'], $row['pet_adoption_date_adopted']);
+                array_walk($lineData, 'filterData');
+                $excelData .= implode("\t", array_values($lineData)) . "\n";
+            }
+        } else {
+            $excelData .= 'No Pet Adoptions Records Available...' . "\n";
+        }
+
+        /* Generate Header File Encordings For Download */
+        header("Content-Type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=\"$fileName\"");
+
+        /* Render  Excel Data For Download */
+        echo $excelDataHeader;
+        echo $excelData;
+
+        exit;
+    }
+}
