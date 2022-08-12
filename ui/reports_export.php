@@ -420,36 +420,46 @@ if ($report == 'pets') {
                 <thead>
                     <tr>
                         <th style="width:10%">#</th>
-                        <th style="width:100%">Full Names</th>
-                        <th style="width:100%">Email</th>
-                        <th style="width:100%">Contacts</th>
-                        <th style="width:100%">Address</th>
+                        <th style="width:50%">Name</th>
+                        <th style="width:30%">Breed</th>
+                        <th style="width:30%">Age</th>
+                        <th style="width:20%">Status</th>
+                        <th style="width:50%">Health Status</th>
+                        <th style="width:100%">Owner</th>
                     </tr>
                 </thead>
                 <tbody>
                 ';
-        $ret = "SELECT * FROM pet_owner";
+        $ret = "SELECT * FROM pets p
+        INNER JOIN pet_owner po ON p.pet_pet_owner = po.pet_owner_id";
         $stmt = $mysqli->prepare($ret);
         $stmt->execute(); //ok
         $res = $stmt->get_result();
         $cnt = 1;
-        while ($pet_owner = $res->fetch_object()) {
+        while ($pets = $res->fetch_object()) {
             $html .=
                 '
                         <tr>
                             <td>' . $cnt . '</td>
                             <td>
-                               ' . $pet_owner->pet_owner_full_name . '
+                               ' . $pets->pet_name . '
                             </td>
                             <td>
-                            ' . $pet_owner->pet_owner_email . '
-                             </td>
-                            <td>
-                               ' . $pet_owner->pet_owner_contacts . '
+                            ' . $pets->pet_breed . '
                             </td>
-                           
                             <td>
-                               ' . $pet_owner->pet_owner_address . '
+                               ' . $pets->pet_age . '
+                            </td>
+                            <td>
+                               ' . $pets->pet_adoption_status . '
+                            </td>
+                            <td>
+                               ' . $pets->pet_health_status . '
+                            </td>
+                            <td>
+                               ' . $pets->pet_owner_full_name . '<br>
+                               Email: ' . $pets->pet_owner_email . '<br>
+                               Contacts: ' . $pets->pet_owner_contacts . '
                             </td>
                         </tr>
                     ';
@@ -463,7 +473,7 @@ if ($report == 'pets') {
         $dompdf->set_paper('A4');
         $dompdf->set_option('isHtml5ParserEnabled', true);
         $dompdf->render();
-        $dompdf->stream('Pet Owners Reports', array("Attachment" => 1));
+        $dompdf->stream('Pets Reports', array("Attachment" => 1));
         $options = $dompdf->getOptions();
         $options->setDefaultFont('');
         $dompdf->setOptions($options);
