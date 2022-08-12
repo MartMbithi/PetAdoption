@@ -302,7 +302,7 @@ if ($report == 'pets') {
 
         /* Excel Column Name */
         $header = array("Pets Reports");
-        $fields = array('Name', 'Breed', 'Age', 'Health Status', 'Owner');
+        $fields = array('Name', 'Status', 'Breed', 'Age', 'Health Status', 'Owner');
 
 
         /* Implode Excel Data */
