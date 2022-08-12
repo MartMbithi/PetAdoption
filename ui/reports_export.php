@@ -291,7 +291,7 @@ if ($report == '') {
 }
 
 /* 3. Pet Owners */
-if ($report == 'admins') {
+if ($report == 'owners') {
     /* Dump Reports To XLS File */
     if ($type == 'excel') {
         function filterData(&$str)
@@ -302,11 +302,11 @@ if ($report == 'admins') {
         }
 
         /* Excel File Name */
-        $fileName = "Administrators Reports.xls";
+        $fileName = "Pet Owners Reports.xls";
 
         /* Excel Column Name */
-        $header = array("Administrators Reports");
-        $fields = array('Email Address', 'Access Level');
+        $header = array("Pet Owners Reports");
+        $fields = array('Full Names', 'Email', 'Contacts', 'Address');
 
 
         /* Implode Excel Data */
@@ -314,17 +314,16 @@ if ($report == 'admins') {
         $excelData = implode("\t", array_values($fields)) . "\n";
 
         /* Fetch All Records From The Database */
-        $query = $mysqli->query("SELECT * FROM login 
-        WHERE login_rank = 'Administrator' ");
+        $query = $mysqli->query("SELECT * FROM pet_owner ");
         if ($query->num_rows > 0) {
             /* Load All Fetched Rows */
             while ($row = $query->fetch_assoc()) {
-                $lineData = array($row['login_email'], $row['login_rank']);
+                $lineData = array($row['pet_owner_full_name'], $row['pet_owner_contacts'], $row['pet_owner_email'], $row['pet_owner_address']);
                 array_walk($lineData, 'filterData');
                 $excelData .= implode("\t", array_values($lineData)) . "\n";
             }
         } else {
-            $excelData .= 'No Administrators Records Available...' . "\n";
+            $excelData .= 'No Pet Owners Records Available...' . "\n";
         }
 
         /* Generate Header File Encordings For Download */
