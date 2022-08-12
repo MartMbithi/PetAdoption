@@ -417,34 +417,42 @@ if ($report == 'owners') {
                     Pet Adoption System
                 </h3>
                 <hr style="width:100%" , color=black>
-                <h5>Administrators Reports</h5>
+                <h5>Pet Owners Reports</h5>
             </div>
             <table border="1" cellspacing="0" width="98%" style="font-size:9pt">
                 <thead>
                     <tr>
                         <th style="width:10%">#</th>
+                        <th style="width:100%">Full Names</th>
                         <th style="width:100%">Email</th>
-                        <th style="width:40%">Login Rank</th>
+                        <th style="width:100%">Contacts</th>
+                        <th style="width:100%">Address</th>
                     </tr>
                 </thead>
                 <tbody>
                 ';
-        $ret = "SELECT * FROM login 
-        WHERE login_rank = 'Administrator'";
+        $ret = "SELECT * FROM pet_owner";
         $stmt = $mysqli->prepare($ret);
         $stmt->execute(); //ok
         $res = $stmt->get_result();
         $cnt = 1;
-        while ($admin = $res->fetch_object()) {
+        while ($pet_owner = $res->fetch_object()) {
             $html .=
                 '
                         <tr>
                             <td>' . $cnt . '</td>
                             <td>
-                               ' . $admin->login_email . '
+                               ' . $pet_owner->pet_owner_full_name . '
                             </td>
                             <td>
-                            ' . $admin->login_rank . '
+                            ' . $pet_owner->pet_owner_email . '
+                             </td>
+                            <td>
+                               ' . $pet_owner->pet_owner_contacts . '
+                            </td>
+                           
+                            <td>
+                               ' . $pet_owner->pet_owner_address . '
                             </td>
                         </tr>
                     ';
@@ -458,7 +466,7 @@ if ($report == 'owners') {
         $dompdf->set_paper('A4');
         $dompdf->set_option('isHtml5ParserEnabled', true);
         $dompdf->render();
-        $dompdf->stream('Administrators Reports', array("Attachment" => 1));
+        $dompdf->stream('Pet Owners Reports', array("Attachment" => 1));
         $options = $dompdf->getOptions();
         $options->setDefaultFont('');
         $dompdf->setOptions($options);
