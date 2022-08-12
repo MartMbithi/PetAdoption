@@ -478,7 +478,7 @@ if ($report == 'owners') {
 }
 
 /* 4. Pet Adopters */
-if ($report == 'owners') {
+if ($report == 'adopters') {
     /* Dump Reports To XLS File */
     if ($type == 'excel') {
         function filterData(&$str)
@@ -489,7 +489,7 @@ if ($report == 'owners') {
         }
 
         /* Excel File Name */
-        $fileName = "Pet Owners Reports.xls";
+        $fileName = "Pet Adopters Reports.xls";
 
         /* Excel Column Name */
         $header = array("Pet Owners Reports");
@@ -501,16 +501,16 @@ if ($report == 'owners') {
         $excelData = implode("\t", array_values($fields)) . "\n";
 
         /* Fetch All Records From The Database */
-        $query = $mysqli->query("SELECT * FROM pet_owner ");
+        $query = $mysqli->query("SELECT * FROM adopter ");
         if ($query->num_rows > 0) {
             /* Load All Fetched Rows */
             while ($row = $query->fetch_assoc()) {
-                $lineData = array($row['pet_owner_full_name'], $row['pet_owner_contacts'], $row['pet_owner_email'], $row['pet_owner_address']);
+                $lineData = array($row['adopter_full_name'], $row['adopter_email'], $row['adoper_contacts'], $row['adopter_location']);
                 array_walk($lineData, 'filterData');
                 $excelData .= implode("\t", array_values($lineData)) . "\n";
             }
         } else {
-            $excelData .= 'No Pet Owners Records Available...' . "\n";
+            $excelData .= 'No Pet Adopters Records Available...' . "\n";
         }
 
         /* Generate Header File Encordings For Download */
@@ -618,28 +618,28 @@ if ($report == 'owners') {
                 </thead>
                 <tbody>
                 ';
-        $ret = "SELECT * FROM pet_owner";
+        $ret = "SELECT * FROM adopter";
         $stmt = $mysqli->prepare($ret);
         $stmt->execute(); //ok
         $res = $stmt->get_result();
         $cnt = 1;
-        while ($pet_owner = $res->fetch_object()) {
+        while ($adopter = $res->fetch_object()) {
             $html .=
                 '
                         <tr>
                             <td>' . $cnt . '</td>
                             <td>
-                               ' . $pet_owner->pet_owner_full_name . '
+                               ' . $adopter->adopter_full_name . '
                             </td>
                             <td>
-                            ' . $pet_owner->pet_owner_email . '
-                             </td>
+                            ' . $adopter->adopter_email . '
+                            </td>
                             <td>
-                               ' . $pet_owner->pet_owner_contacts . '
+                               ' . $adopter->adoper_contacts . '
                             </td>
                            
                             <td>
-                               ' . $pet_owner->pet_owner_address . '
+                               ' . $adopter->adopter_location . '
                             </td>
                         </tr>
                     ';
