@@ -125,16 +125,17 @@ require_once('../app/partials/head.php');
                         </div>
                         <!-- /.col -->
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3 callout callout-danger">
-                                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
+                            <a href="pet_owners" class="text-dark">
+                                <div class="info-box mb-3 callout callout-danger">
+                                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
 
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Registered Pet Owners</span>
-                                    <span class="info-box-number"><?php echo $pet_owner; ?></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Registered Pet Owners</span>
+                                        <span class="info-box-number"><?php echo $pet_owner; ?></span>
+                                    </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
+                            </a>
                         </div>
                         <!-- /.col -->
 
