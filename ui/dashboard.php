@@ -158,16 +158,17 @@ require_once('../app/partials/head.php');
                         </div>
                         <!-- /.col -->
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3 callout callout-warning">
-                                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-check"></i></span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Successful Adoptions</span>
-                                    <span class="info-box-number"><?php echo $pet_adoption; ?></span>
+                            <a href="pet_adoptions" class="text-dark">
+                                <div class="info-box mb-3 callout callout-warning">
+                                    <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-check"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Successful Adoptions</span>
+                                        <span class="info-box-number"><?php echo $pet_adoption; ?></span>
+                                    </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
+                                <!-- /.info-box -->
+                            </a>
                         </div>
                         <!-- /.col -->
                     </div>
