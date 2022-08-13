@@ -143,16 +143,18 @@ require_once('../app/partials/head.php');
                         <div class="clearfix hidden-md-up"></div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3 callout callout-success">
-                                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-cat"></i></span>
+                            <a href="pets" class="text-dark">
+                                <div class="info-box mb-3 callout callout-success">
+                                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-cat"></i></span>
 
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Pets</span>
-                                    <span class="info-box-number"><?php echo $pets; ?></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Pets</span>
+                                        <span class="info-box-number"><?php echo $pets; ?></span>
+                                    </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
+                                <!-- /.info-box -->
+                            </a>
                         </div>
                         <!-- /.col -->
                         <div class="col-12 col-sm-6 col-md-3">
