@@ -254,6 +254,40 @@ if (isset($_POST['Update_Pet_Owner'])) {
 }
 
 
+/* Update Pet Owner Auth */
+if (isset($_POST['Update_Pet_Owner_Password'])) {
+    $login_id = mysqli_real_escape_string($mysqli, $_POST['login_id']);
+    $old_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['old_password'])));
+    $new_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['new_password'])));
+    $confirm_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['confirm_password'])));
+
+    /* Check If Passwords Match */
+    if ($new_password != $confirm_password) {
+        $err = "Passwords Does Not Match";
+    } else {
+        /* Check If Old Password Match Too */
+        $sql = "SELECT * FROM  login   WHERE login_id = '{$login_id}'";
+        $res = mysqli_query($mysqli, $sql);
+        if (mysqli_num_rows($res) > 0) {
+            $row = mysqli_fetch_assoc($res);
+            if ($row['login_password'] != $old_password) {
+                $err = "Incorrect Old Password";
+            } else {
+
+                /* Persist Password Update */
+                $sql = "UPDATE login SET login_password = '{$new_password}' WHERE login_id = '{$login_id}'";
+
+                /* Prepare */
+                if (mysqli_query($mysqli, $sql)) {
+                    $success = "Passwords Updated";
+                } else {
+                    $err = "Failed!, Please Try Again";
+                }
+            }
+        }
+    }
+}
+
 /* Delete Pet Owner */
 if (isset($_POST['Delete_Pet_Owner'])) {
     $pet_owner_login_id = mysqli_real_escape_string($mysqli, $_POST['pet_owner_login_id']);
