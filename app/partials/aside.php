@@ -143,7 +143,7 @@ if ($_SESSION['login_rank'] == 'Administrator') {
 
     </aside>
 <?php
-} else if ($_SESSION['login_rank'] == 'Pet Owner') { ?>
+} else if ($_SESSION['login_rank'] == 'Pet Owner') {  ?>
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-dark">
         <div class="container">
             <a href="owner_home" class="navbar-brand">
