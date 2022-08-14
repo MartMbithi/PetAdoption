@@ -170,7 +170,7 @@ if ($_SESSION['login_rank'] == 'Administrator') {
                         </li>
                     </ul>
                     <li class="nav-item">
-                        <a data-toggle="tooltip" data-placement="top" title="Profile Settings" class="nav-link text-primary" href="profile"><i class="fas fa-user-edit"></i></a>
+                        <a data-toggle="tooltip" data-placement="top" title="Profile Settings" class="nav-link text-primary" href="owner_profile"><i class="fas fa-user-edit"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger" data-placement="top" title="Sign Out" data-toggle="modal" href="#logout_modal"><i class="fas fa-power-off"></i></a>
