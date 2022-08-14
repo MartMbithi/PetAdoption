@@ -136,7 +136,60 @@ require_once('../app/partials/head.php');
                                     <div class="card-body">
                                         <div class="tab-content">
                                             <div class="active tab-pane" id="profile_settings">
-
+                                                <form method="POST">
+                                                    <div class="form-row">
+                                                        <div class="form-group col-12">
+                                                            <label>Full Names</label>
+                                                            <div class="input-group mb-3">
+                                                                <input class="form-control" value="<?php echo $user->pet_owner_id; ?>" required type="hidden" name="pet_owner_id">
+                                                                <input class="form-control" value="<?php echo $user->pet_owner_full_name; ?>" required type="text" name="pet_owner_full_name">
+                                                                <div class="input-group-append">
+                                                                    <div class="input-group-text">
+                                                                        <span class="text-primary fas fa-user-tag"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-6">
+                                                            <label>Contacts</label>
+                                                            <div class="input-group mb-3">
+                                                                <input class="form-control" value="<?php echo $user->pet_owner_contacts; ?>" required type="text" name="pet_owner_contacts">
+                                                                <div class="input-group-append">
+                                                                    <div class="input-group-text">
+                                                                        <span class="text-primary fas fa-phone"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-6">
+                                                            <label>Email Address</label>
+                                                            <div class="input-group mb-3">
+                                                                <input class="form-control" value="<?php echo $user->pet_owner_email; ?>" required type="text" name="pet_owner_email">
+                                                                <div class="input-group-append">
+                                                                    <div class="input-group-text">
+                                                                        <span class="text-primary fas fa-envelope"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-12">
+                                                            <label>Address</label>
+                                                            <div class="input-group mb-3">
+                                                                <input class="form-control" value="<?php echo $user->pet_owner_address; ?>" required type="text" name="pet_owner_address">
+                                                                <div class="input-group-append">
+                                                                    <div class="input-group-text">
+                                                                        <span class="text-primary fas fa-map-marker-alt"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group text-right">
+                                                        <button class="btn btn-outline-primary mt-3" type="submit" name="Update_Pet_Owner" name="submit">
+                                                            <i class="fas fa-save"></i> Save
+                                                        </button>
+                                                    </div>
+                                                </form>
                                             </div>
                                             <div class="tab-pane" id="change_password">
                                                 <form method="post" enctype="multipart/form-data">
