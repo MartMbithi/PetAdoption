@@ -155,59 +155,27 @@ if ($_SESSION['login_rank'] == 'Administrator') {
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-                <!-- Left navbar links -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="owner_home" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Contact</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
-                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                            <li><a href="#" class="dropdown-item">Some action </a></li>
-                            <li><a href="#" class="dropdown-item">Some other action</a></li>
-
-                            <li class="dropdown-divider"></li>
-
-                            <!-- Level two dropdown-->
-                            <li class="dropdown-submenu dropdown-hover">
-                                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
-                                <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
-                                    <li>
-                                        <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
-                                    </li>
-
-                                    <!-- Level three dropdown-->
-                                    <li class="dropdown-submenu">
-                                        <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
-                                        <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
-                                            <li><a href="#" class="dropdown-item">3rd level</a></li>
-                                            <li><a href="#" class="dropdown-item">3rd level</a></li>
-                                        </ul>
-                                    </li>
-                                    <!-- End Level three -->
-
-                                    <li><a href="#" class="dropdown-item">level 2</a></li>
-                                    <li><a href="#" class="dropdown-item">level 2</a></li>
-                                </ul>
-                            </li>
-                            <!-- End Level two -->
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-
             <!-- Right navbar links -->
             <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                <li class="nav-item">
-                    <a data-toggle="tooltip" data-placement="top" title="Profile Settings" class="nav-link text-primary" href="profile"><i class="fas fa-user-edit"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-danger" data-placement="top" title="Sign Out" data-toggle="modal" href="#logout_modal"><i class="fas fa-power-off"></i></a>
-                </li>
+                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="owner_home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="owner_pets" class="nav-link">My Pets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="owner_adoptions" class="nav-link">Adoptions</a>
+                        </li>
+                    </ul>
+                    <li class="nav-item">
+                        <a data-toggle="tooltip" data-placement="top" title="Profile Settings" class="nav-link text-primary" href="profile"><i class="fas fa-user-edit"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" data-placement="top" title="Sign Out" data-toggle="modal" href="#logout_modal"><i class="fas fa-power-off"></i></a>
+                    </li>
+                </div>
             </ul>
         </div>
     </nav>
