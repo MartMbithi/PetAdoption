@@ -119,7 +119,7 @@ require_once('../app/partials/head.php');
 
                         <!-- /.col -->
                         <div class="col-12 col-sm-6 col-md-6">
-                            <a href="owner_pets" class="text-dark">
+                            <a href="owner_adoptions" class="text-dark">
                                 <div class="info-box mb-3 callout callout-warning">
                                     <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-check"></i></span>
                                     <div class="info-box-content">
