@@ -109,6 +109,7 @@ if ($_SESSION['login_rank'] == 'Administrator') {
     $res = $stmt->get_result();
     while ($user = $res->fetch_object()) {
         $owner_id = $user->pet_owner_id;
+        global $owner_id;
 
         /* Pets */
         $query = "SELECT COUNT(*)  FROM pets  WHERE pet_pet_owner = '{$owner_id}'";

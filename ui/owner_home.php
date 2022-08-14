@@ -103,7 +103,7 @@ require_once('../app/partials/head.php');
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-6">
-                            <a href="pets" class="text-dark">
+                            <a href="owner_pets" class="text-dark">
                                 <div class="info-box mb-3 callout callout-success">
                                     <span class="info-box-icon bg-success elevation-1"><i class="fas fa-cat"></i></span>
 
@@ -116,10 +116,10 @@ require_once('../app/partials/head.php');
                                 <!-- /.info-box -->
                             </a>
                         </div>
-                        
+
                         <!-- /.col -->
                         <div class="col-12 col-sm-6 col-md-6">
-                            <a href="pet_adoptions" class="text-dark">
+                            <a href="owner_pets" class="text-dark">
                                 <div class="info-box mb-3 callout callout-warning">
                                     <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-check"></i></span>
                                     <div class="info-box-content">
@@ -157,7 +157,8 @@ require_once('../app/partials/head.php');
                                                     $ret = "SELECT * FROM pet_adoption pa
                                                     INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
                                                     INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
-                                                    INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id";
+                                                    INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id
+                                                    WHERE po.pet_owner_id = '{$owner_id}'";
                                                     $stmt = $mysqli->prepare($ret);
                                                     $stmt->execute(); //ok
                                                     $res = $stmt->get_result();
