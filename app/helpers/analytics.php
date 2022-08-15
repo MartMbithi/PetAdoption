@@ -130,4 +130,32 @@ if ($_SESSION['login_rank'] == 'Administrator') {
         $stmt->close();
     }
 } else {
+    /* Pet adopter ID */
+    $login_id = mysqli_real_escape_string($mysqli, $_SESSION['login_id']);
+    $ret = "SELECT * FROM adopter WHERE adopter_login_id = '{$login_id}'";
+    $stmt = $mysqli->prepare($ret);
+    $stmt->execute(); //ok
+    $res = $stmt->get_result();
+    while ($user = $res->fetch_object()) {
+        $adopter_id = $user->adopter_id;
+        global $owner_id;
+
+        /* Pets */
+        $query = "SELECT COUNT(*)  FROM pets  WHERE pet_status = 'Pending'";
+        $stmt = $mysqli->prepare($query);
+        $stmt->execute();
+        $stmt->bind_result($pets);
+        $stmt->fetch();
+        $stmt->close();
+
+        /* Adopts */
+        $query = "SELECT COUNT(*)  FROM pet_adoption pa
+        INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
+        WHERE pa.pet_adoption_adopter_id = '{$adopter_id}'";
+        $stmt = $mysqli->prepare($query);
+        $stmt->execute();
+        $stmt->bind_result($pet_adoption);
+        $stmt->fetch();
+        $stmt->close();
+    }
 }

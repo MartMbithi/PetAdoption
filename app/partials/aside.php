@@ -182,7 +182,7 @@ if ($_SESSION['login_rank'] == 'Administrator') {
 <?php } else { ?>
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-dark">
         <div class="container">
-            <a href="owner_home" class="navbar-brand">
+            <a href="adopter_home" class="navbar-brand">
                 <img src="../assets/app_data/logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Pet Adoption</span>
             </a>
@@ -196,17 +196,17 @@ if ($_SESSION['login_rank'] == 'Administrator') {
                 <div class="collapse navbar-collapse order-3" id="navbarCollapse">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="owner_home" class="nav-link">Home</a>
+                            <a href="adopter_home" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="owner_pets" class="nav-link">My Pets</a>
+                            <a href="adopter_pets" class="nav-link">Pets</a>
                         </li>
                         <li class="nav-item">
-                            <a href="owner_adoptions" class="nav-link">Adoptions</a>
+                            <a href="adopter_adoptions" class="nav-link">Adoptions</a>
                         </li>
                     </ul>
                     <li class="nav-item">
-                        <a data-toggle="tooltip" data-placement="top" title="Profile Settings" class="nav-link text-primary" href="owner_profile"><i class="fas fa-user-edit"></i></a>
+                        <a data-toggle="tooltip" data-placement="top" title="Profile Settings" class="nav-link text-primary" href="adopter_profile"><i class="fas fa-user-edit"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger" data-placement="top" title="Sign Out" data-toggle="modal" href="#logout_modal"><i class="fas fa-power-off"></i></a>
