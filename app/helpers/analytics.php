@@ -141,7 +141,7 @@ if ($_SESSION['login_rank'] == 'Administrator') {
         global $owner_id;
 
         /* Pets */
-        $query = "SELECT COUNT(*)  FROM pets  WHERE pet_status = 'Pending'";
+        $query = "SELECT COUNT(*)  FROM pets  WHERE pet_adoption_status = 'Pending'";
         $stmt = $mysqli->prepare($query);
         $stmt->execute();
         $stmt->bind_result($pets);
