@@ -158,7 +158,7 @@ require_once('../app/partials/head.php');
                                                     INNER JOIN pets p ON p.pet_id = pa.pet_adoption_pet_id
                                                     INNER JOIN pet_owner po ON po.pet_owner_id = p.pet_pet_owner
                                                     INNER JOIN adopter a ON a.adopter_id = pa.pet_adoption_adopter_id
-                                                    WHERE po.pet_owner_id = '{$owner_id}'";
+                                                    WHERE pa.pet_adoption_adopter_id = '{$adopter_id}'";
                                                     $stmt = $mysqli->prepare($ret);
                                                     $stmt->execute(); //ok
                                                     $res = $stmt->get_result();
