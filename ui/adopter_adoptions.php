@@ -68,6 +68,7 @@ session_start();
 require_once('../app/settings/config.php');
 require_once('../app/settings/checklogin.php');
 check_login();
+require_once('../app/helpers/pets.php');
 require_once('../app/helpers/analytics.php');
 require_once('../app/partials/head.php');
 ?>
@@ -86,11 +87,12 @@ require_once('../app/partials/head.php');
                 <div class="container">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark"> Home </h1>
+                            <h1 class="m-0 text-dark"> Pet Adoptions </h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="adopter_home">Home</a></li>
+                                <li class="breadcrumb-item active">Pet Adoptions</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -102,44 +104,8 @@ require_once('../app/partials/head.php');
             <div class="content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6">
-                            <a href="adopter_pets" class="text-dark">
-                                <div class="info-box mb-3 callout callout-success">
-                                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-cat"></i></span>
-
-                                    <div class="info-box-content">
-                                        <span class="info-box-text">Pets</span>
-                                        <span class="info-box-number"><?php echo $pets; ?></span>
-                                    </div>
-                                    <!-- /.info-box-content -->
-                                </div>
-                                <!-- /.info-box -->
-                            </a>
-                        </div>
-
-                        <!-- /.col -->
-                        <div class="col-12 col-sm-6 col-md-6">
-                            <a href="adopter_adoptions" class="text-dark">
-                                <div class="info-box mb-3 callout callout-warning">
-                                    <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-check"></i></span>
-                                    <div class="info-box-content">
-                                        <span class="info-box-text">Successful Adoptions</span>
-                                        <span class="info-box-number"><?php echo $pet_adoption; ?></span>
-                                    </div>
-                                    <!-- /.info-box-content -->
-                                </div>
-                                <!-- /.info-box -->
-                            </a>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <div class="row">
                         <div class="col-md-12">
                             <div class="card card-primary card-outline">
-                                <div class="card-header">
-                                    <h5 class="card-title">Monthly Adoption Report</h5>
-                                </div>
-                                <!-- /.card-header -->
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -150,6 +116,7 @@ require_once('../app/partials/head.php');
                                                         <th>Pet Owner Details</th>
                                                         <th>Adopted By</th>
                                                         <th>Date Adopted</th>
+                                                        <th>Manage</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -183,8 +150,12 @@ require_once('../app/partials/head.php');
                                                             <td>
                                                                 <?php echo date('d M Y', strtotime($adoption->pet_adoption_date_adopted)); ?>
                                                             </td>
+                                                            <td>
+                                                                <a data-toggle="modal" href="#delete_<?php echo $adoption->pet_adoption_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
+                                                            </td>
                                                         </tr>
                                                     <?php
+                                                        include('../app/modals/pets_adoptions.php');
                                                     } ?>
                                                 </tbody>
                                             </table>
