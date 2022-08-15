@@ -91,7 +91,7 @@ if (isset($_POST['Login'])) {
         header('Location: owner_home');
         exit;
     } else if ($rs && $login_rank == 'Pet Adopter') {
-        $_SESSION['success'] = 'Logged In As Counselor';
+        $_SESSION['success'] = 'Logged In As Pet Adopter';
         header('Location: adopter_home');
         exit;
     } else {
