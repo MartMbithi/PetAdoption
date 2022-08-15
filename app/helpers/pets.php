@@ -149,9 +149,7 @@ if (isset($_POST['Adopt_Pet'])) {
 
         /* Prepare */
         if (mysqli_query($mysqli, $sql) && mysqli_query($mysqli, $update)) {
-            $_SESSION['success'] = "Pet Adopted, Proceed To Contacting The Owner";
-            header('Location: pet_adoptions');
-            exit;
+            $success = "Pet Adopted, Proceed To Contacting The Owner";
         } else {
             $err = "Failed!, Please Try Again";
         }
