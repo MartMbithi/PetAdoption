@@ -192,3 +192,21 @@ if (isset($_POST['Delete_Pet_Adoption'])) {
         $err = "Failed!, Please Try Again";
     }
 }
+
+
+/* Add Adoption Feedback */
+if (isset($_POST['Add_Feedback'])) {
+    $feedback_pet_adoption_id = mysqli_real_escape_string($mysqli, $_POST['feedback_pet_adoption_id']);
+    $feedback_title = mysqli_real_escape_string($mysqli, $_POST['feedback_title']);
+    $feedback_details = mysqli_real_escape_string($mysqli, $_POST['feedback_details']);
+
+
+    /* Add Feedback */
+    $add_sql = "INSERT INTO pet_adoption_feedback(feedback_pet_adoption_id, feedback_title, feedback_details) VALUES('{$feedback_pet_adoption_id}', '{$feedback_title}', '{$feedback_details}')";
+
+    if (mysqli_query($mysqli, $add_sql)) {
+        $success = "Feedback submitted";
+    } else {
+        $err = "Failed, please try again";
+    }
+}

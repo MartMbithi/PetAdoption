@@ -66,15 +66,13 @@
  */
 session_start();
 require_once('../app/settings/config.php');
+require_once('../app/settings/codeGen.php');
 require_once('../app/helpers/auth.php');
 require_once('../app/partials/head.php');
 ?>
 
 <body class="hold-transition login-page" style="background-image: url('../assets/app_data/bg_1.jpg'); background-size: cover;">
     <div class="col-6">
-        <div class="login-logo">
-            <h2 href="" class="text-light"><b>Pet Adoption System</b></h2>
-        </div>
         <!-- /.login-logo -->
         <?php
         $user = mysqli_real_escape_string($mysqli, $_GET['user']);

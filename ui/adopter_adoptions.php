@@ -69,7 +69,6 @@ require_once('../app/settings/config.php');
 require_once('../app/settings/checklogin.php');
 check_login();
 require_once('../app/helpers/pets.php');
-require_once('../app/helpers/analytics.php');
 require_once('../app/partials/head.php');
 ?>
 
@@ -152,6 +151,7 @@ require_once('../app/partials/head.php');
                                                             </td>
                                                             <td>
                                                                 <a data-toggle="modal" href="#delete_<?php echo $adoption->pet_adoption_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
+                                                                <a data-toggle="modal" href="#give_feedback_<?php echo $adoption->pet_adoption_id; ?>" class="badge  badge-pill badge-primary"><em class="fas fa-bullhorn"></em> Give feedback</a>
                                                             </td>
                                                         </tr>
                                                     <?php

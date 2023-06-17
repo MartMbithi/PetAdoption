@@ -98,6 +98,55 @@
     </div>
 </div>
 
+<!-- Pet Adoptions -->
+<div class="modal fade" id="give_feedback_<?php echo $adoption->pet_adoption_id; ?>">
+    <div class="modal-dialog modal-dialog-centered  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Give your feedback on the adopted pet</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label>Title</label>
+                            <div class="input-group mb-3">
+                                <input class="form-control" required type="text" name="feedback_title">
+                                <input class="form-control" required type="text" name="feedback_pet_adoption_id" value="<?php echo $adoption->pet_adoption_id; ?>">
+
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="text-primary fas fa-tag"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-12">
+                            <label>Feedback Details</label>
+                            <div class="input-group mb-3">
+                                <textarea rows="5" class="form-control" required type="text" name="feedback_details"></textarea>
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="text-primary fas fa-bullhorn"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <button class="btn btn-outline-primary mt-3" type="submit" name="Add_Feedback" name="submit">
+                            <i class="fas fa-save"></i> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Delete Modal -->
 <div class="modal fade" id="delete_<?php echo $adoption->pet_adoption_id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
