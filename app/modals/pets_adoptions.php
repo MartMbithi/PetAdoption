@@ -115,7 +115,7 @@
                             <label>Title</label>
                             <div class="input-group mb-3">
                                 <input class="form-control" required type="text" name="feedback_title">
-                                <input class="form-control" required type="text" name="feedback_pet_adoption_id" value="<?php echo $adoption->pet_adoption_id; ?>">
+                                <input class="form-control" required type="hidden" name="feedback_pet_adoption_id" value="<?php echo $adoption->pet_adoption_id; ?>">
 
                                 <div class="input-group-append">
                                     <div class="input-group-text">

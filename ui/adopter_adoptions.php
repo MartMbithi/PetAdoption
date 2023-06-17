@@ -69,6 +69,7 @@ require_once('../app/settings/config.php');
 require_once('../app/settings/checklogin.php');
 check_login();
 require_once('../app/helpers/pets.php');
+require_once('../app/helpers/analytics.php');
 require_once('../app/partials/head.php');
 ?>
 
