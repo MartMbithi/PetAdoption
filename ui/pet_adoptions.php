@@ -158,6 +158,7 @@ require_once('../app/partials/head.php');
                                                             </td>
                                                             <td>
                                                                 <a data-toggle="modal" href="#update_<?php echo $adoption->pet_adoption_id; ?>" class="badge  badge-pill badge-warning"><em class="fas fa-user-edit"></em> Edit</a>
+                                                                <a data-toggle="modal" href="#feedback_<?php echo $adoption->pet_adoption_id; ?>" class="badge  badge-pill badge-primary"><em class="fas fa-eye"></em> View feedback</a>
                                                                 <a data-toggle="modal" href="#delete_<?php echo $adoption->pet_adoption_id; ?>" class="badge  badge-pill badge-danger"><em class="fas fa-trash"></em> Delete</a>
                                                             </td>
                                                         </tr>

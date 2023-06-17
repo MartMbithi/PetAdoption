@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 15, 2022 at 08:41 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: Jun 17, 2023 at 10:51 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `adopter` (
   `adopter_email` varchar(200) NOT NULL,
   `adopter_login_id` varchar(200) NOT NULL,
   `adopter_location` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `adopter`
@@ -55,7 +55,7 @@ CREATE TABLE `login` (
   `login_email` varchar(200) NOT NULL,
   `login_password` varchar(200) NOT NULL,
   `login_rank` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `login`
@@ -82,7 +82,7 @@ CREATE TABLE `pets` (
   `pet_health_status` varchar(200) NOT NULL,
   `pet_pet_owner` int(200) NOT NULL,
   `pet_adoption_status` varchar(200) NOT NULL DEFAULT 'Pending'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pets`
@@ -104,7 +104,7 @@ CREATE TABLE `pet_adoption` (
   `pet_adoption_pet_id` int(200) NOT NULL,
   `pet_adoption_adopter_id` int(200) NOT NULL,
   `pet_adoption_date_adopted` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pet_adoption`
@@ -114,6 +114,20 @@ INSERT INTO `pet_adoption` (`pet_adoption_id`, `pet_adoption_pet_id`, `pet_adopt
 (16, 5, 3, '08/03/2022'),
 (17, 3, 4, '09/02/2022'),
 (19, 6, 4, '08/29/2022');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pet_adoption_feedback`
+--
+
+CREATE TABLE `pet_adoption_feedback` (
+  `feedback_id` int(200) NOT NULL,
+  `feedback_pet_adoption_id` int(200) NOT NULL,
+  `feedback_title` longtext NOT NULL,
+  `feedback_details` longtext NOT NULL,
+  `feedback_date` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -128,7 +142,7 @@ CREATE TABLE `pet_owner` (
   `pet_owner_contacts` varchar(200) NOT NULL,
   `pet_owner_address` longtext NOT NULL,
   `pet_owner_login_id` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pet_owner`
@@ -171,6 +185,13 @@ ALTER TABLE `pet_adoption`
   ADD KEY `AdopterDetails` (`pet_adoption_adopter_id`);
 
 --
+-- Indexes for table `pet_adoption_feedback`
+--
+ALTER TABLE `pet_adoption_feedback`
+  ADD PRIMARY KEY (`feedback_id`),
+  ADD KEY `FeedbackPetAdoptionID` (`feedback_pet_adoption_id`);
+
+--
 -- Indexes for table `pet_owner`
 --
 ALTER TABLE `pet_owner`
@@ -200,6 +221,12 @@ ALTER TABLE `pet_adoption`
   MODIFY `pet_adoption_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
+-- AUTO_INCREMENT for table `pet_adoption_feedback`
+--
+ALTER TABLE `pet_adoption_feedback`
+  MODIFY `feedback_id` int(200) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `pet_owner`
 --
 ALTER TABLE `pet_owner`
@@ -227,6 +254,12 @@ ALTER TABLE `pets`
 ALTER TABLE `pet_adoption`
   ADD CONSTRAINT `AdopterDetails` FOREIGN KEY (`pet_adoption_adopter_id`) REFERENCES `adopter` (`adopter_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `PetDetails` FOREIGN KEY (`pet_adoption_pet_id`) REFERENCES `pets` (`pet_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pet_adoption_feedback`
+--
+ALTER TABLE `pet_adoption_feedback`
+  ADD CONSTRAINT `FeedbackPetAdoptionID` FOREIGN KEY (`feedback_pet_adoption_id`) REFERENCES `pet_adoption` (`pet_adoption_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pet_owner`
